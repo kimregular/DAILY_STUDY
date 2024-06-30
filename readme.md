@@ -4,6 +4,8 @@
 
 [JPA](https://github.com/kimregular/DAILY_STUDY/tree/main/JPA)
 
+[함께 자라기 애자일로 가는 길](https://github.com/kimregular/DAILY_STUDY/tree/main/독서/6.%20함께%20자라기%20애자일로%20가는%20길)
+
 ## 독서 목록
 
 ### 서평 완료 목록
