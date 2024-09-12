@@ -2,17 +2,24 @@
 
 하루에 공부한 내용들 정리하는 레포
 
+## 기술
+
 [JPA](https://github.com/kimregular/DAILY_STUDY/tree/main/JPA)
 
 [함께 자라기 애자일로 가는 길](https://github.com/kimregular/DAILY_STUDY/tree/main/독서/6.%20함께%20자라기%20애자일로%20가는%20길)
 
+--------------------
+
+## 취업 
+[포트폴리오 작성](https://github.com/kimregular/DAILY_STUDY/tree/main/포트폴리오%20작성)
+
 ## 독서 목록
 
 ### 서평 완료 목록
-- [혼자 공부하는 컴퓨터 구조 + 운영체제](https://github.com/kimregular/DAILY_STUDY/blob/main/독서/1.%20서평/01.%20혼자%20공부하는%20컴퓨터%20구조%20%2B%20운영체제%20를%20읽고%20📝.md)
+- [혼자 공부하는 컴퓨터 구조 + 운영체제](https://velog.io/@regular_jk_kim/혼자-공부하는-컴퓨터-구조-운영체제-를-읽고)
+- [프로그래머의 길, 멘토에게 묻다](https://velog.io/@regular_jk_kim/프로그래머의-길-멘토에게-묻다-를-읽고-24jpq345)
 
-###  서평 예정 목록 (읽는 중)
-- 프로그래머의 길, 멘토에게 묻다
+###  서평 예정 목록 (읽는 중) 
 - 함께 자라기 애자일로 가는 길
 
 ### 독서 예정 목록
@@ -27,4 +34,3 @@
 - 자바 개발자와 시스템 운영자를 위한 트러블 슈팅 이야기 / scouter를 활용한 시스템 장애 진단 및 해결 노하우 자바 트러블슈팅
 - 헤드 퍼스트 서블릿
 - Hello Coding 그림으로 개념을 이해하는 알고리즘
-
