@@ -70,8 +70,19 @@ console.log(새로운_인스턴스); // 객체_생성기 { '이름': 'kim' } 출
 // 5. 이벤트리스너에서는 e.currentTarget
 // html 안에 id="버튼" 인 button 태그가 있다고 가정하자.
 // this == e.currentTarget
-document.getElementById("버튼").addEventListener("click", function(e) {
+document.getElementById("버튼").addEventListener("click", function (e) {
     console.log(this);
-    console.log(e.currentTarget);
-})
+    console.log(e.currentTarget); // 둘은 똑같은 값이다.
+    // 지금 이벤트가 동작하고 있는 곳을 의미한다.
+});
 
+// 특수 경우를 알아보자.
+// 아래 코드는 실행시 1,2,3을 출력한다.
+document.getElementById("버튼").addEventListener("click", function (e) {
+    var 어레이 = [1, 2, 3];
+    어레이.forEach(function (a) {
+        console.log(a);
+    });
+});
+
+// forEach 안에 있는 함수를 콜백함수라고 부른다. (함수의 파라미터에 들어가는 함수 의미)
