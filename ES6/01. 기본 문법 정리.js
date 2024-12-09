@@ -70,6 +70,11 @@ for (var i = 0; i < 5; i++) {
 // forEach
 // array의 길이만큼 function이 동작한다.
 // 안녕!이 4번 출력된다.
-[1,2,3,4].forEach(function() {
+[1, 2, 3, 4].forEach(function () {
     console.log("안녕!");
-})
+});
+// function에 파라미터를 지정했다면 해당 파라미터는 array의 원소이다.
+// 1 2 3 4 출력
+[1, 2, 3, 4].forEach(function (a) {
+    console.log(a);
+});
