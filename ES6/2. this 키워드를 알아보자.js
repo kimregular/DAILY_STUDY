@@ -86,3 +86,26 @@ document.getElementById("버튼").addEventListener("click", function (e) {
 });
 
 // forEach 안에 있는 함수를 콜백함수라고 부른다. (함수의 파라미터에 들어가는 함수 의미)
+// 함수를 순차적으로 실행하고 싶을 때 콜백함수를 사용한다.
+
+// 오브젝트 내에서 콜백함수를 쓴다면 this는? 1. 일반 함수
+var 오브젝트 = {
+    이름들: ['김', '이', '박'],
+    함수: function () {
+        오브젝트.이름들.forEach(function () {
+            console.log(this);
+        });
+    },
+};
+오브젝트.함수(); // window를 3번 출력한다.
+
+// 오브젝트 내에서 콜백함수를 쓴다면 this는? 2. 화살표 함수
+var 오브젝트 = {
+    이름들: ['김', '이', '박'],
+    함수: function () {
+        오브젝트.이름들.forEach(() => {
+            console.log(this);
+        });
+    },
+};
+오브젝트.함수(); // 오브젝트를 3번 출력한다.
