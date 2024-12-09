@@ -32,4 +32,26 @@ var object = {
     }
 }
 
-object.함수();
+object.함수(); // object body 출력
+
+// 만약 중첩 오브젝트라면 어떻게 출력될까?
+var outer = {
+    inner : {
+        함수 : function() {
+            console.log(this);
+        }
+    }
+}
+
+outer.inner.함수(); // inner body 만 출력한다.
+
+// 만약 화살표 함수라면 어떻게 출력할까?
+var outer2 = {
+    inner2 : {
+        함수 : () => {
+            console.log(this);
+        }
+    }
+}
+outer2.inner2.함수();
+// this값을 함수밖에 있던 그대로 물려받아 사용한다. window가 출력된다. (브라우저 기준)
