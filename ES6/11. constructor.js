@@ -34,10 +34,26 @@ console.log(학생3);
 function 예의바른학생기계() {
     this.name = 'kim';
     this.age = 15;
-    function sayHi() {
+    this.sayHi = function () {
         console.log(`안녕하세요 ${this.name}입니다`);
-    }
+    };
 }
 
 var 예의바른학생1 = new 예의바른학생기계();
-예의바른학생1.sayHi();
+예의바른학생1.sayHi(); // 안녕하세요 kim입니다
+// 앞으로 예의바른학생기계() 로 만들어진 학생은 모두 sayHi() 메서드를 사용할 수 있다.
+
+// 문제가 하나 발생했다. 학생1과 학생2의 이름이 똑같다. 이름을 다르게 할 수 있다.
+
+function 개선된기계(이름) {
+    this.name = 이름;
+    this.age = 15;
+    this.sayHi = function() {
+        console.log(`안녕하세요 ${this.name} 입니다`);
+    }
+}
+
+var 김씨 = new 개선된기계('kim');
+var 이씨 = new 개선된기계('lee');
+김씨.sayHi(); // 안녕하세요 kim입니다
+이씨.sayHi(); // 안녕하세요 lee 입니다
