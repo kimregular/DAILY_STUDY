@@ -66,10 +66,25 @@ var params = [10, 20, 30];
 // apply() 뭐임?
 var person1 = {
     인사: function () {
-        console.log("안녕");
+        console.log(this.name + "안녕");
     }
 };
 
 var person2 = {
     name: "김이박",
 }
+
+person1.인사(); // undefined안녕
+
+// person1의 인사() 를 person2에 적용하고 싶다면?
+// 1. 인사() 를 복사해서 person2에 붙여넣는다.
+// 2. apply() 사용한다
+person1.인사.apply(person2); // 김이박안녕
+
+// call() 을 알아보자.
+// apply()와 비슷하다.
+
+person1.인사.call(person2); // 김이박안녕
+
+// 차이점이라면 apply()는 두 번째 파라미터로 배열을 받는다.
+// call()은 배열이 아닌 값을 받는다.
