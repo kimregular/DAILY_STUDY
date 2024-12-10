@@ -46,6 +46,27 @@ console.log(age);
 console.log(something); // a 출력!
 
 // 변수명을 다르게 하고싶다면?
-var {name : 나이, age} = {name : 'kim', age: 30};
+var {name: 나이, age} = {name: 'kim', age: 30};
 console.log(나이); // name이 "나이" 변수에 저장되었다.
 console.log(age);
+
+// destructuring 을 반대로 사용하기
+// 많은 변수들을 오브젝트에 넣고 싶은 경우
+var name = 'kim';
+var age = 30;
+
+// 변수명을 기준으로 키를 만들어주고 변수에 할당된 데이터를 값으로 매칭해준다.
+var obj = {name, age}
+console.log(obj.name);
+console.log(obj.age);
+
+// 함수 파라미터를 만들 때에도 사용이 가능하다.
+var obj = {name: 'kim', age: 30};
+
+function 함수({name, age}) {
+    console.log(name);
+    console.log(age);
+}
+// name, age라는 이름의 파라미터 변수를 받는다
+
+함수(obj);
