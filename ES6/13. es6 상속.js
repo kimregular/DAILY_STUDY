@@ -22,5 +22,9 @@ var 자식 = new 부모();
 console.log(자식);
 자식.noProtoSayHi();
 자식.protoSayHi();
+
+// 아래 코드는 똑같은 기능을 수행한다.
 console.log(자식.__proto__);
+console.log(Object.getPrototypeOf(자식));
 console.log(부모.prototype);
+// 자식.__proto__ == 부모.prototype
