@@ -30,6 +30,7 @@ var 나이가숫자인사람 = {
     age: 20,
     setAge(age) {
         if(typeof age === 'number') {
+            // 아니면 parseInt(age) 사용해도 된다.
             this.age = age;
         }
     },
@@ -41,3 +42,25 @@ var 나이가숫자인사람 = {
 console.log(나이가숫자인사람.age);
 나이가숫자인사람.setAge(200);
 console.log(나이가숫자인사람.age);
+
+// 복잡한 소괄호가 보기 싫다면 set/get 키워드를 함수 앞에 붙인다.
+
+var set키워드설정한사람 = {
+    name: '김',
+    age: 20,
+    get getAge() {
+        return this.age + 1;
+    }
+    set setAge(age) {
+        if(typeof age === 'number') {
+            // 아니면 parseInt(age) 사용해도 된다.
+            this.age = age;
+        }
+    },
+}
+
+set키워드설정한사람.setAge = '20'; // 적용 안 됨
+console.log(set키워드설정한사람.age);
+set키워드설정한사람.setAge = 200;
+console.log(set키워드설정한사람.age);
+
