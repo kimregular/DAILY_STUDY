@@ -33,6 +33,25 @@ function 더하기defaultFunc(a, b = 임시()) {
 
 // 함수의 arguments를 알아보자.
 
-function 더하기2(a, b, c) { // 여기의 a, b, c 는 파라미터
+function temp(a, b, c) { // 여기의 a, b, c 는 파라미터
     console.log(a, b, c); // 여기의 a, b, c 는 arguments
 }
+
+function 더하기2(a, b, c) { // 여기의 a, b, c 는 파라미터
+    console.log(arguments); // 여기의 a, b, c 는 arguments
+    console.log(arguments[0]); // 배열 처럼 사용할 수 있다.
+    console.log(arguments[1]);
+    console.log(arguments[2]);
+}
+
+더하기2(1, 2, 3); // [Arguments] { '0': 1, '1': 2, '2': 3 }
+// 배열 처럼 사용할 수 있다.
+
+// 파라미터로 입력한 값들을 콘솔에 출력하고 싶다면?
+function argumentsPrinter(a, b, c) {
+    for(let i = 0; i < arguments.length; i++) {
+        console.log(arguments[i]);
+    }
+}
+
+argumentsPrinter(1, 2, 3);
