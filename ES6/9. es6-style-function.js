@@ -24,6 +24,7 @@ function 더하기default(a, b = 10) {
 function 임시() {
     return 10;
 }
+
 function 더하기defaultFunc(a, b = 임시()) {
     console.log(a + b);
 }
@@ -49,9 +50,26 @@ function 더하기2(a, b, c) { // 여기의 a, b, c 는 파라미터
 
 // 파라미터로 입력한 값들을 콘솔에 출력하고 싶다면?
 function argumentsPrinter(a, b, c) {
-    for(let i = 0; i < arguments.length; i++) {
+    for (let i = 0; i < arguments.length; i++) {
         console.log(arguments[i]);
     }
 }
 
 argumentsPrinter(1, 2, 3);
+
+// rest 파라미터를 알아보자.
+// 함수를 만들 때 ... 기호를 파라미터 왼쪽에 추가하자
+function 함수2(...rest) {
+    console.log(rest);
+}
+
+함수2(1, 2, 3, 4, 5, 6); // [ 1, 2, 3, 4, 5, 6 ]
+// rest 파라미터는 모든 파라미터를 배열 안에 담고 있다. 이름은 마음대로 지정 가능하다 ex) ...rest, ...내맘, ...뭐임마
+// 즉, 원하는 파라미터 왼쪽에 ... 기호를 붙이면 이 자리에 오는 모든 파라미터를 중괄호로 감싸준 파라미터 라는 뜻이 된다.
+
+function 함수3(a, b, ...c) {
+    console.log(c);
+}
+
+함수3(1, 2, 3, 4, 5, 6, 7, 8); // [ 3, 4, 5, 6, 7, 8 ]
+// 3번째 파라미터부터 출력된다.
