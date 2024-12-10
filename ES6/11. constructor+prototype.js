@@ -71,3 +71,15 @@ function 정말요() {
 }
 
 console.log(정말요.prototype);
+
+// 따라서 prototype에 특정 함수를 저장해놓으면 해당 생성자로 생성된 자식들은 그 기능을 사용할 수 있다.
+// 유전자다!
+
+정말요.prototype.gender = '남'; // 정말요 생성자에서 생성된 모든 자식들은 gender = '남'이라는 값을 가지게 된다.
+
+var 진심 = new 정말요();
+console.log(진심.gender); // 남
+
+// "진심"을 살펴보자.
+console.log(진심); // 정말요 { name: '진짜루' }
+// gender : '남' 값이 없다!
