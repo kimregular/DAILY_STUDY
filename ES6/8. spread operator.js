@@ -12,3 +12,12 @@ console.log(...어레이);
 var 문자 = "hello";
 console.log(문자);
 console.log(...문자);
+
+// 그래서 어디에 씀?
+// 1. array 합치기, 복사
+var a = [1, 2, 3];
+var b = [4, 5];
+var c = [a, b];
+var d = [...a, ...b];
+console.log(c);
+console.log(d);
