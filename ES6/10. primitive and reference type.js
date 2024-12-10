@@ -15,3 +15,20 @@ var 어레이 = [1, 2, 3];
 // [1, 2, 3]이 어디에 있는지 가르키는 화살표라고 이해하면 된다.
 var obj = {name: 'kim'};
 // {name: 'kim'} 값이 obj에 저장되지 않고 {name: 'kim'}을 가리키는 화살표가 obj에 저장된다.
+
+// primitive type 복사
+var 이름1 = '김';
+var 이름2 = 이름1;
+console.log(이름1); // 김
+console.log(이름2); // 김
+
+// 만약 이름1의 값을 바꾼다면 이름2는 뭐가 출력될까?
+이름1 = '박';
+console.log(이름1); // 박
+console.log(이름2); // 김
+
+// reference type 복사
+var obj1 = {name: '김'};
+var obj2 = obj1;
+console.log(obj1); // { name: '김' }
+console.log(obj2); // { name: '김' }
