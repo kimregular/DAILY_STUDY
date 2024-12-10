@@ -7,7 +7,7 @@ function 함수1() {
 
 // 다음 코드의 콘솔창 출력 결과는 뭘까요?
 함수2();
-function 함수2() {
+var 함수2 function() {
     console.log(안녕);
     var 안녕 = "Hello";
 }
