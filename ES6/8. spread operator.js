@@ -47,3 +47,29 @@ oz.b = 4;
 console.log(ox); // { a: 3 }
 console.log(oz); // { a: 3, b: 4 }
 // oz 에만 값이 추가되었다.
+
+// 5. 함수 파라미터 삽입시 사용
+function 더하기(a, b, c) {
+    console.log(a + b + c);
+}
+
+더하기(1, 2, 3);
+// 만약 배열을 파라미터로 넣는다면?
+var params = [10, 20, 30];
+더하기(params); // 에러!
+
+// 이런경우 옛날에는 apply()를 사용했다.
+더하기.apply(undefined, params);
+// es6 부터는 ... 사용한다.
+더하기(...params);
+
+// apply() 뭐임?
+var person1 = {
+    인사: function () {
+        console.log("안녕");
+    }
+};
+
+var person2 = {
+    name: "김이박",
+}
