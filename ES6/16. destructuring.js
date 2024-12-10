@@ -17,3 +17,35 @@ console.log(w);
 console.log(x);
 console.log(y);
 console.log(z); // undefined!
+
+// 길이가 맞지 않아 undefined 출력된다.
+// 이런 경우에는 기본값을 설정해놓을 수 있다.
+var [i, j, k, l = 10] = arr;
+console.log(i);
+console.log(j);
+console.log(k);
+console.log(l); // 10 출력
+
+// 오브젝트에도 가능하다!
+// object 데이터를 꺼내서 변수에 담아보자.
+var obj = {name: 'kim', age: 30};
+// 기존 방법
+var name = obj.name;
+var age = obj.age;
+console.log(name);
+console.log(age);
+// es6
+var {name, age} = obj;
+console.log(name);
+console.log(age);
+// object 의 경우에는 array와 다르게 위치와는 상관없다. 키값만 맞으면 해당하는 값이 할당된다.
+// 기본값 설정이 가능하다.
+var {name, age, something = 'a'} = {name: 'kim', age: 30};
+console.log(name);
+console.log(age);
+console.log(something); // a 출력!
+
+// 변수명을 다르게 하고싶다면?
+var {name : 나이, age} = {name : 'kim', age: 30};
+console.log(나이); // name이 "나이" 변수에 저장되었다.
+console.log(age);
