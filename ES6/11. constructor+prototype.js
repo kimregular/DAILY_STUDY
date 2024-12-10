@@ -83,8 +83,6 @@ console.log(진심.gender); // 남
 // "진심"을 살펴보자.
 console.log(진심); // 정말요 { name: '진짜루' }
 // gender : '남' 값이 없다!
-console.log(진심.__proto__);
-// 이렇게 하면 부모의 유전자를 살펴볼 수 있다.
 
 // 어떻게 이런 동작이 가능한가?
 // 인스턴스의 값에 접근하면 가장 먼저 인스턴스가 해당 필드를 가지고 있는지 확인한다.
@@ -99,3 +97,19 @@ var arr2 = new Array(1, 2, 3);
 // 어? 어디서 많이 봤던 구조다. 그렇다. Array() 기계로 자식을 만들어냈다.
 // 따라서 arr2에는 sort() 메서드가 없지만 부모인 Array()의 prototype에 sort() 가 정의되어 있어서
 // arr2 에서도 sort() 메서드를 사용할 수 있는 것이다.
+
+// 내 부모의 유전자를 알고싶다면 __proto__
+console.log(진심.__proto__); // 자식
+console.log(정말요.prototype); // 부모
+// 이렇게 하면 부모의 유전자를 살펴볼 수 있다.
+
+
+// __proto__를 이용해 부모님 강제 지정하기
+var 부모 = {name: 'kim'}; // 이름이 김씨인 부모님
+var 자식 = {}; // 아무것도 없는 자식
+// 자식의 부모를 강제로 지정해보자.
+자식.__proto__ = 부모;
+console.log(자식.name); // kim
+console.log(자식.__proto__); // { name: 'kim' }
+
+// 잘 쓰지는 않는다.
