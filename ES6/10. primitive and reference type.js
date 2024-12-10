@@ -40,3 +40,6 @@ console.log(obj2); // { name: '박' }
 
 // primitive type 과는 다른 결과가 나왔다.
 // reference type은 할당 과정이 primitive type과는 다르기 때문이다.
+// primitive type 의 값은 변수에 그 값이 그대로 들어간다는 사실을 명심하자
+// reference type은 변수에 { name: '김' } 값이 그대로 들어가지 않는다.
+// { name: '김' } 값이 메모리상 어딘가 있어요 라는 화살표를 변수에 저장한다.
