@@ -81,8 +81,8 @@ person1.인사(); // undefined안녕
 // 2. apply() 사용한다
 person1.인사.apply(person2); // 김이박안녕
 
-// call() 을 알아보자.
-// apply()와 비슷하다.
+// call(object, param) 을 알아보자.
+// apply(object, [params])와 비슷하다.
 
 person1.인사.call(person2); // 김이박안녕
 
