@@ -32,3 +32,11 @@ var obj1 = {name: '김'};
 var obj2 = obj1;
 console.log(obj1); // { name: '김' }
 console.log(obj2); // { name: '김' }
+
+// 만약 obj1의 값을 바꾸면 obj2는 뭐가 출력될까?
+obj1.name = '박';
+console.log(obj1); // { name: '박' }
+console.log(obj2); // { name: '박' }
+
+// primitive type 과는 다른 결과가 나왔다.
+// reference type은 할당 과정이 primitive type과는 다르기 때문이다.
