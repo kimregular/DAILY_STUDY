@@ -38,6 +38,12 @@ console.log(o3); // { a: 1, b: 2, d: 4 }
 // 4. 오브젝트 딥카피
 var ox = {a: 3};
 var oy = ox;
-oy.b = 4;
+oy.b = 4; // oy에만 값을 추가했지만 ox에도 값이 추가됨 -> 같은 인스턴스를 참조하기 때문
 console.log(ox); // { a: 3, b: 4 }
 console.log(oy); // { a: 3, b: 4 }
+ox = {a: 3}; // 다시 초기화
+var oz = {...ox};
+oz.b = 4;
+console.log(ox); // { a: 3 }
+console.log(oz); // { a: 3, b: 4 }
+// oz 에만 값이 추가되었다.
