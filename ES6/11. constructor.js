@@ -26,3 +26,18 @@ var 학생3 = new 기계();
 console.log(학생1);
 console.log(학생2);
 console.log(학생3);
+
+// 기계 안에 있는 this는 기계로부터 생성되는 오브젝트를 뜻한다.
+// 따라서 새로 생성되는 오브젝트의 이름(this.name)은 'kim'이다 라는 의미이다.
+
+// 학생.sayHi(); 를 입력하면 인사하는 예의바른 학생을 만들어보자.
+function 예의바른학생기계() {
+    this.name = 'kim';
+    this.age = 15;
+    function sayHi() {
+        console.log(`안녕하세요 ${this.name}입니다`);
+    }
+}
+
+var 예의바른학생1 = new 예의바른학생기계();
+예의바른학생1.sayHi();
