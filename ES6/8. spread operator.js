@@ -19,5 +19,11 @@ var a = [1, 2, 3];
 var b = [4, 5];
 var c = [a, b];
 var d = [...a, ...b];
-console.log(c);
-console.log(d);
+console.log(c); // 2중 배열
+console.log(d); // 배열
+
+// 2. deep copy
+var x = [1, 2, 3];
+var y = x;
+var z = [...x];
+// x와 y는 같은 인스턴스를 참조하지만 z는 완전 새로운 인스턴스를 참조한다.
