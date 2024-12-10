@@ -50,7 +50,7 @@ var set키워드설정한사람 = {
     age: 20,
     get getAge() {
         return this.age + 1;
-    }
+    },
     set setAge(age) {
         if(typeof age === 'number') {
             // 아니면 parseInt(age) 사용해도 된다.
@@ -62,5 +62,28 @@ var set키워드설정한사람 = {
 set키워드설정한사람.setAge = '20'; // 적용 안 됨
 console.log(set키워드설정한사람.age);
 set키워드설정한사람.setAge = 200;
-console.log(set키워드설정한사람.age);
+console.log(set키워드설정한사람.age); // get 키워드를 함수 앞에 붙여서 소괄호가 필요없다.
+console.log(set키워드설정한사람.getAge);
 
+
+// class에서 getter/setter 사용하기
+
+class Person {
+    constructor() {
+        this.name = 'park';
+        this.age = 20;
+    }
+
+    get nextAge() {
+        return this.age + 1;
+    }
+
+    set setAge(age) {
+        this.age = parseInt(age);
+    }
+}
+
+var person1 = new Person();
+console.log(person1.nextAge);
+person1.setAge = '2000';
+console.log(person1.age);
