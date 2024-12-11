@@ -16,7 +16,7 @@ async function 더하기1() {
     // return 문은 then이나 catch의 파라미터로 들어간다
 }
 
-더하기1().then(function(결과) {
+더하기1().then(function (결과) {
     console.log(`성공이에요! -> ${결과}`);
     // async 함수의 return 값을 파라미터로 받는다.
 });
@@ -32,8 +32,24 @@ async function 더하기2() {
         var 결과 = 1 + 1;
         성공(결과);
     });
-    어려운연산.then(
+    어려운연산.then(function (결과) {
         console.log(결과);
-    )
+    });
 }
+
+더하기2();
+
+// 이렇게 하면 된다.
+// 그런데  then() 이 너무 복잡해서 보기 싫으니까 await 키워드를 사용해보자.
+
+async function 더하기3() {
+    var 어려운연산 = new Promise((성공, 실패) => {
+        var 결과 = 1 + 1;
+        성공(결과);
+    });
+    var 결과 = await 어려운연산;
+    console.log(결과);
+}
+
+더하기3();
 
