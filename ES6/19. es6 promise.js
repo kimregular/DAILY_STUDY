@@ -1,6 +1,7 @@
 // 콜백함수 디자인패턴이 맘에 안드는 사람들은 promise 디자인 패턴을 사용하면 된다.
 
 // promise 생김새 살펴보기
+/*
 var 프로미스 = new Promise();
 
 프로미스.then(function () {
@@ -8,9 +9,10 @@ var 프로미스 = new Promise();
     // then() 을 계속해서 붙여도 된다.
 }).catch(function () {
     // 프로미스가 실패할 경우 실행할 코드
-}).finally(function() {
+}).finally(function () {
     // 마지막에 무조건 실행되는 코드
 });
+*/
 
 // 이게 전부다.
 // new Promise() 문법으로 프로미스라는 변수 오브젝트를 하나 생성하면 Promise 제작 끝이다.
@@ -26,7 +28,7 @@ var 프로미스 = new Promise();
 // promise 안에는 아무거나 다 넣을 수 있다.
 // 1 + 1 같은 연산이 끝나면 성공판정, 페이지 내의 <button>을 누르면 성공판정 등등
 // promise 안에서 성공/실패를 판정하는 방법은 아래와 같다.
-var 프로미스 = new Promise(function(성공, 실패) {
+var 프로미스 = new Promise(function (성공, 실패) {
     성공();
 })
 
@@ -40,3 +42,19 @@ var 프로미스 = new Promise(function(성공, 실패) {
 // 성공() 이라고 첫 번째 파라미터를 함수형태로 작성하면 성공판정이 된다.
 // 실패() 라고 둘째 파라미터를 함수형태로 작성하면 실패 판정이 된다.
 // 위 코드는 무조건 성공판정을 내리도록 되어있으므로 이후 then() 안의 코드가 실행된다.
+
+// 예시를 알아보자.
+// 어려운 연산이 끝나면 특정 코드를 실행시키고 싶다.
+// 어려운 연산인 1 + 1 을 해보자
+var 프로미스 = new Promise(function (성공, 실패) {
+    var 어려운연산 = 1 + 1;
+    성공();
+});
+
+프로미스.then(function() {
+    // 어려운 연산 성공시
+    console.log("성공했어요!");
+}).catch(function() {
+    // 어려운 연산 실패시
+    console.log("실패했어요!");
+})
