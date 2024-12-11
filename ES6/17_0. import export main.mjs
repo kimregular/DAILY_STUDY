@@ -4,5 +4,16 @@
 // import 는 사용만 가능하고 수정은 불가능하다 (readOnly)
 
 import a from "./17_1. importTarget.mjs";
+// 17_1. importTarget.mjs 에서 기본 export 대상이 a이다.
+// 기본 설정이 되어 있기 때문에 마음대로 이름을 바꿔도 된다.
+
+import {b} from "./17_1. importTarget.mjs";
+// export default 외에는 이런식으로 import 해와야한다.
+// 이름을 바꿀 수도 없다.
+
+// 위의 import 두 줄을 한 줄로 바꿀 수도 있다.
+// import a, {b} from "./17_1. importTarget.mjs";
+// export default 항목을 먼저 서술해야한다.
 
 console.log(a);
+console.log(b);
