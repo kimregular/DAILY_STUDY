@@ -22,6 +22,27 @@ var obj = {name : 'kim', age: 30}
 console.log(Object.getOwnPropertyDescriptor(obj, "name"));
 // { value: 'kim', writable: true, enumerable: true, configurable: true }
 // 이 값들이 kim과 함께 몰래 저장되는 속성들이다
-
+// 여기서 `enumerable` 이라는 값이 있는데, 이게 true인 자료들만 for in 반복문을 출력할 수 있다
+// 이 값을 강제로 false로 만들면 for in 반복문이 제외하고 다른 값들을 순회한다
 
 // 2. 부모의 prototype에 저장된 것도 출력해준다.
+// object의 부모의 유전자에 있는 속성도 반복문으로 출력해준다
+
+class 부모 {
+}
+
+부모.prototype.name = 'park';
+
+var 자식 = new 부모();
+for (const key in 자식) {
+    console.log(자식[key]);
+}
+
+// park이라는 자료는 부모가 가지고 있는 것인데도 출력된다
+// 단점임
+// 거르려면 if문을 사용하자
+for (const key in 자식) {
+    if (자식.hasOwnProperty(key)) {
+        console.log(자식[key]); // 출력 아무것도 안 됨
+    }
+}
