@@ -4,7 +4,7 @@
 // object에 사용한다
 // object 자료형에 저장된 자료들을 하나씩 꺼내고 싶을 때 사용한다.
 
-var obj = {name : 'kim', age: 30}
+var obj = {name: 'kim', age: 30}
 for (const key in obj) {
     console.log(obj[key]);
 }
@@ -18,7 +18,7 @@ for (const key in obj) {
 // 1. enumerable 인 것들만 출력해준다.
 //objec 자료형을 만들 때 {name : 'kim'}을 저장하면 kim이라는 자료만 달랑 저장되지 않는다.
 // kim과 함께 속성 3개가 추가로 저장된다.
-var obj = {name : 'kim', age: 30}
+var obj = {name: 'kim', age: 30}
 console.log(Object.getOwnPropertyDescriptor(obj, "name"));
 // { value: 'kim', writable: true, enumerable: true, configurable: true }
 // 이 값들이 kim과 함께 몰래 저장되는 속성들이다
@@ -29,6 +29,10 @@ console.log(Object.getOwnPropertyDescriptor(obj, "name"));
 // object의 부모의 유전자에 있는 속성도 반복문으로 출력해준다
 
 class 부모 {
+
+    static {
+        this.prototype.name = 'park';
+    }
 }
 
 부모.prototype.name = 'park';
@@ -46,3 +50,14 @@ for (const key in 자식) {
         console.log(자식[key]); // 출력 아무것도 안 됨
     }
 }
+
+// for of 반복문
+// for in 반복문과 유사하다
+var arr = [1, 2, 3];
+for (const number of arr) {
+    console.log(number);
+}
+// array 뿐만 아니라, 문자, arguments, NodeList, Map, Set 이라는 자료형에 적용할 수 있는 반복문이다
+// 자세히 말하자면 iterable인 자료형에만 적용가능한 반복문이다
+// 무슨 말인고 하면 [Symbol.iterator]() 이라는 메서드를 가지고 있는 자료형들을 뜻한다
+console.log(arr[Symbol.iterator]());
