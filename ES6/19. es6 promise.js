@@ -48,13 +48,43 @@ var 프로미스 = new Promise(function (성공, 실패) {
 // 어려운 연산인 1 + 1 을 해보자
 var 프로미스 = new Promise(function (성공, 실패) {
     var 어려운연산 = 1 + 1;
-    성공();
+    성공(); // 실패시키고 싶다면 실패()를 호출하면 된다.
 });
 
-프로미스.then(function() {
+프로미스.then(function () {
     // 어려운 연산 성공시
     console.log("성공했어요!");
-}).catch(function() {
+}).catch(function () {
     // 어려운 연산 실패시
     console.log("실패했어요!");
-})
+});
+
+// 성공이든, 실패든 그 결과를 이어서 연산하고 싶다면 파라미터로 넘겨주면 된다.
+var 프로미스 = new Promise(function (성공, 실패) {
+    var 어려운연산 = 1 + 1;
+    성공(어려운연산); // 실패시키고 싶다면 실패()를 호출하면 된다.
+});
+
+프로미스.then(function (결과) {
+    // 어려운 연산 성공시
+    console.log(`성공했어요! -> ${결과}`);
+}).catch(function (결과) {
+    // 어려운 연산 실패시
+    console.log(`실패했어요! -> ${결과}`);
+});
+
+// 예시 2
+// 1초 후에 성공하는 프로미스를 만들어보자.
+var 프로미스 = new Promise(function (성공, 실패) {
+    setTimeout(() => {
+        성공("1초 후 성공완료");
+    }, 1000);
+});
+
+프로미스.then(function (결과) {
+    // 어려운 연산 성공시
+    console.log(`성공했어요! -> ${결과}`);
+}).catch(function (결과) {
+    // 어려운 연산 실패시
+    console.log(`실패했어요! -> ${결과}`);
+});
