@@ -60,4 +60,5 @@ for (const number of arr) {
 // array 뿐만 아니라, 문자, arguments, NodeList, Map, Set 이라는 자료형에 적용할 수 있는 반복문이다
 // 자세히 말하자면 iterable인 자료형에만 적용가능한 반복문이다
 // 무슨 말인고 하면 [Symbol.iterator]() 이라는 메서드를 가지고 있는 자료형들을 뜻한다
-console.log(arr[Symbol.iterator]());
+console.log(arr[Symbol.iterator]);
+// 깊게 이해할 필요는 없고 이걸 가지고 있으면 for of 반복문을 쓸 수 있구나 라고 알고있으면 된다
