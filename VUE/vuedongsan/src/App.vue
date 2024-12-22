@@ -6,7 +6,7 @@
         <a v-for="menu in menus" :key="menu"> {{ menu }} </a>
     </div>
 
-    <DiscountBanner></DiscountBanner>
+    <DiscountBanner />
 
     <OneRoomInfos @openModal="모달창열렸니 = true; 누른거 = $event" :원룸="원룸들[i]" v-for="(원룸, i) in 원룸들" :key="i"/>
 </template>
