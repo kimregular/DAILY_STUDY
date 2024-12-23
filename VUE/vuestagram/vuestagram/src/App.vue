@@ -75,6 +75,9 @@ export default {
             };
             this.posts.unshift(newPost);
             this.step = 0;
+        },
+        $_getMonthAndDate() {
+            
         }
     }
 }
