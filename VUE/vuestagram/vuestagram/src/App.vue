@@ -9,7 +9,7 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
-    <ContainerVue :posts="posts" :step="step"/>
+    <ContainerVue :posts="posts" :step="step" :newImage="newImage"/>
 
     <div class="footer">
         <ul class="footer-button-plus">
@@ -33,7 +33,8 @@ export default {
         return {
             step: 0,
             posts: postData,
-            click: 0
+            click: 0,
+            newImage: '',
         }
     },
     watch: {
@@ -50,7 +51,9 @@ export default {
         },
         upload(e) {
             let image = e.target.files[0];
-
+            let imageUrl = URL.createObjectURL(image);
+            this.step = 1;
+            this.newImage = imageUrl;
         }
     }
 }

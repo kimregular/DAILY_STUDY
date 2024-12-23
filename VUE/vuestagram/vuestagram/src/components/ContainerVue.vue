@@ -8,7 +8,8 @@ export default {
     },
     props: {
         posts: Array,
-        step: Number
+        step: Number,
+        newImage: String
     }
 }
 </script>
@@ -21,7 +22,7 @@ export default {
 
     <!-- 필터선택페이지 -->
     <div v-if="step==1">
-        <div class="upload-image"></div>
+        <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="filters">
             <div class="filter-1"></div>
             <div class="filter-1"></div>
