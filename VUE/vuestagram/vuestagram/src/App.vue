@@ -32,14 +32,15 @@ export default {
     },
     data() {
         return {
-            posts : postData
+            posts: postData,
+            click : 0
         }
     },
-    methods : {
+    methods: {
         more() {
-            axios.get("https://codingapple1.github.io/vue/more0.json")
-                .then(function (result) {
-                    posts.push(result);
+            axios.get(`https://codingapple1.github.io/vue/more${this.click++}.json`)
+                .then((result) => {
+                    this.posts.push(result.data);
                 });
         }
     }
