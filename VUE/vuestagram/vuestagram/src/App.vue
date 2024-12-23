@@ -9,8 +9,17 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
+    <button class="btn0" disabled>버튼 0</button>
+    <button class="btn1">버튼 1</button>
+    <button class="btn2">버튼 2</button>
+    <div class="index0">내용 0</div>
+    <div class="index1 hide">내용 1</div>
+    <div class="index2 hide">내용 2</div>
+
     <ContainerVue :posts="posts"/>
     <button @click="more()">더보기</button>
+
+
 
     <div class="footer">
         <ul class="footer-button-plus">
