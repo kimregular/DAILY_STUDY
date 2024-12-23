@@ -13,7 +13,7 @@
 
     <div class="footer">
         <ul class="footer-button-plus">
-            <input type="file" id="file" class="inputfile"/>
+            <input type="file" id="file" class="inputfile" @change="upload"/>
             <label for="file" class="input-plus" @click="step=2">+</label>
         </ul>
     </div>
@@ -47,6 +47,10 @@ export default {
                 .then((result) => {
                     this.posts.push(result.data);
                 });
+        },
+        upload(e) {
+            let f = e.target.files;
+            console.log(f);
         }
     }
 }
