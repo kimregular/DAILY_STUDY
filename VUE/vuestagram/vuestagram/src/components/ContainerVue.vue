@@ -36,7 +36,7 @@ export default {
     <div v-if="step==2">
         <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="write">
-            <textarea class="write-box">write!</textarea>
+            <textarea class="write-box" @input="$emit('write', $event.target.value)">write!</textarea>
         </div>
     </div>
 </template>

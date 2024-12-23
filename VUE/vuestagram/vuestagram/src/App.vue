@@ -10,7 +10,7 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
-    <ContainerVue :posts="posts" :step="step" :newImage="newImage"/>
+    <ContainerVue :posts="posts" :step="step" :newImage="newImage" @write="content = $event"/>
 
     <div class="footer">
         <ul class="footer-button-plus">
@@ -36,6 +36,7 @@ export default {
             posts: postData,
             click: 0,
             newImage: '',
+            content : ''
         }
     },
     watch: {
@@ -62,16 +63,17 @@ export default {
         },
         publish(e) {
             console.log(e);
-            this.posts.push({
-                name : "vue Uploader",
-                userImage : this.newImage,
-                postImage : this.newImage,
-                likes : 0,
+            const newPost = {
+                name: "vue Uploader",
+                userImage: this.newImage,
+                postImage: this.newImage,
+                likes: 0,
                 date: toString(new Date()),
-                liked : false,
-                content: "dummy",
+                liked: false,
+                content: this.content,
                 filter: "dummy",
-            })
+            };
+            this.posts.unshift(newPost);
             this.step = 0;
         }
     }
