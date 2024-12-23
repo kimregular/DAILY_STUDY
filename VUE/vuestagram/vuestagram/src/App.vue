@@ -36,6 +36,11 @@ export default {
             click : 0
         }
     },
+    watch : {
+      click(value) {
+          if(value === 2) this.click = 0;
+      }
+    },
     methods: {
         more() {
             axios.get(`https://codingapple1.github.io/vue/more${this.click++}.json`)
