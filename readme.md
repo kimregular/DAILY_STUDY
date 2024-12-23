@@ -5,6 +5,11 @@
 ## 기술
 
 [JPA](https://github.com/kimregular/DAILY_STUDY/tree/main/JPA)
+[ES6](https://github.com/kimregular/DAILY_STUDY/tree/main/ES6)
+[VUE](https://github.com/kimregular/DAILY_STUDY/tree/main/VUE)
+[DOCKER](https://github.com/kimregular/DAILY_STUDY/tree/main/docker)
+[PANDAS](https://github.com/kimregular/DAILY_STUDY/tree/main/introduce_pandas)
+
 
 --------------------
 
@@ -16,13 +21,13 @@
 ### 서평 완료 목록
 - [혼자 공부하는 컴퓨터 구조 + 운영체제](https://velog.io/@regular_jk_kim/혼자-공부하는-컴퓨터-구조-운영체제-를-읽고)
 - [프로그래머의 길, 멘토에게 묻다](https://velog.io/@regular_jk_kim/프로그래머의-길-멘토에게-묻다-를-읽고-24jpq345)
+- [함께 자라기 애자일로 가는 길](https://velog.io/@regular_jk_kim/함께-자라기-를-읽고)
 
 ###  서평 예정 목록 (읽는 중) 
-- 함께 자라기 애자일로 가는 길
+- 객체지향의 사실과 오해
 
 ### 독서 예정 목록
 #### 목록은 우선순위 큐이다. 상단에 있더라도 더 중요한 책이 들어온다면 순위가 뒤로 밀릴 수 있다.
-- 객체지향의 사실과 오해
 - 오브젝트
 - 파이브 라인스 오브 코드
 - HTTP 완벽 가이드
