@@ -9,16 +9,15 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
-    <button class="btn0" disabled>버튼 0</button>
-    <button class="btn1">버튼 1</button>
-    <button class="btn2">버튼 2</button>
-    <div class="index0">내용 0</div>
-    <div class="index1 hide">내용 1</div>
-    <div class="index2 hide">내용 2</div>
+    <button @click="step = 0">버튼 0</button>
+    <button @click="step = 1">버튼 1</button>
+    <button @click="step = 2">버튼 2</button>
+    <div v-if="step == 0">내용 0</div>
+    <div v-if="step == 1">내용 1</div>
+    <div v-if="step == 2">내용 2</div>
 
     <ContainerVue :posts="posts"/>
     <button @click="more()">더보기</button>
-
 
 
     <div class="footer">
@@ -41,14 +40,15 @@ export default {
     },
     data() {
         return {
+            step: 0,
             posts: postData,
-            click : 0
+            click: 0
         }
     },
-    watch : {
-      click(value) {
-          if(value === 2) this.click = 0;
-      }
+    watch: {
+        click(value) {
+            if (value === 2) this.click = 0;
+        }
     },
     methods: {
         more() {
