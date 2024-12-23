@@ -4,11 +4,11 @@
 
 ## 기술
 
-[JPA](https://github.com/kimregular/DAILY_STUDY/tree/main/JPA)
-[ES6](https://github.com/kimregular/DAILY_STUDY/tree/main/ES6)
-[VUE](https://github.com/kimregular/DAILY_STUDY/tree/main/VUE)
-[DOCKER](https://github.com/kimregular/DAILY_STUDY/tree/main/docker)
-[PANDAS](https://github.com/kimregular/DAILY_STUDY/tree/main/introduce_pandas)
+- [JPA](https://github.com/kimregular/DAILY_STUDY/tree/main/JPA)
+- [ES6](https://github.com/kimregular/DAILY_STUDY/tree/main/ES6)
+- [VUE](https://github.com/kimregular/DAILY_STUDY/tree/main/VUE)
+- [DOCKER](https://github.com/kimregular/DAILY_STUDY/tree/main/docker)
+- [PANDAS](https://github.com/kimregular/DAILY_STUDY/tree/main/introduce_pandas)
 
 
 --------------------
