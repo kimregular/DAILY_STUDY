@@ -56,10 +56,24 @@ export default {
             this.step = 1;
             this.newImage = imageUrl;
         },
-        cancelUpload(e) {
+        cancelUpload() {
             this.newImage = '';
             this.step = 0;
         },
+        publish(e) {
+            console.log(e);
+            this.posts.push({
+                name : "vue Uploader",
+                userImage : this.newImage,
+                postImage : this.newImage,
+                likes : 0,
+                date: toString(new Date()),
+                liked : false,
+                content: "dummy",
+                filter: "dummy",
+            })
+            this.step = 0;
+        }
     }
 }
 </script>
