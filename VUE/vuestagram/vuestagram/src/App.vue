@@ -13,8 +13,8 @@
 
     <div class="footer">
         <ul class="footer-button-plus">
-            <input type="file" id="file" class="inputfile" @change="upload"/>
-            <label for="file" class="input-plus" @click="step=2">+</label>
+            <input type="file" id="file" class="inputfile" @change="upload($event)"/>
+            <label for="file" class="input-plus">+</label>
         </ul>
     </div>
 </template>
@@ -49,8 +49,8 @@ export default {
                 });
         },
         upload(e) {
-            let f = e.target.files;
-            console.log(f);
+            let image = e.target.files[0];
+
         }
     }
 }
