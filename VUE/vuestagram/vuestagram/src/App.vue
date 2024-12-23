@@ -9,7 +9,7 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
-    <ContainerVue/>
+    <ContainerVue :posts="Posts"/>
 
     <div class="footer">
         <ul class="footer-button-plus">
@@ -21,11 +21,17 @@
 
 <script>
 import ContainerVue from "@/components/ContainerVue.vue";
+import Posts from "@/Posts";
 
 export default {
     name: 'App',
     components: {
         ContainerVue
+    },
+    data() {
+        return {
+            Posts
+        }
     }
 }
 </script>
