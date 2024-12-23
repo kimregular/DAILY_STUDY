@@ -14,7 +14,7 @@
     <div class="footer">
         <ul class="footer-button-plus">
             <input type="file" id="file" class="inputfile"/>
-            <label for="file" class="input-plus">+</label>
+            <label for="file" class="input-plus" @click="step=2">+</label>
         </ul>
     </div>
 </template>
