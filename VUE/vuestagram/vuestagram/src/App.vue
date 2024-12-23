@@ -76,7 +76,7 @@ export default {
             this.posts.unshift(newPost);
             this.step = 0;
         },
-        $_getMonthAndDate() {
+        $_getMonthAndDate: () => {
             const monthName = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(new Date());
             return `${monthName} ${String(new Date().getDate()).padStart(2, '0')}`;
         }
