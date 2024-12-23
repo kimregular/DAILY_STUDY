@@ -68,7 +68,7 @@ export default {
                 userImage: this.newImage,
                 postImage: this.newImage,
                 likes: 0,
-                date: toString(new Date()),
+                date: this.$_getMonthAndDate(),
                 liked: false,
                 content: this.content,
                 filter: "dummy",
@@ -77,7 +77,8 @@ export default {
             this.step = 0;
         },
         $_getMonthAndDate() {
-            
+            const monthName = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(new Date());
+            return `${monthName} ${String(new Date().getDate()).padStart(2, '0')}`;
         }
     }
 }
