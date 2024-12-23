@@ -10,6 +10,7 @@
     </div>
 
     <ContainerVue :posts="posts"/>
+    <button @click="more()">더보기</button>
 
     <div class="footer">
         <ul class="footer-button-plus">
@@ -22,6 +23,7 @@
 <script>
 import ContainerVue from "@/components/ContainerVue.vue";
 import postData from "@/assets/postData";
+import axios from "axios";
 
 export default {
     name: 'App',
@@ -31,6 +33,14 @@ export default {
     data() {
         return {
             posts : postData
+        }
+    },
+    methods : {
+        more() {
+            axios.get("https://codingapple1.github.io/vue/more0.json")
+                .then(function (result) {
+                    posts.push(result);
+                });
         }
     }
 }
