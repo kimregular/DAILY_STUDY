@@ -1,6 +1,19 @@
 <script>
 export default {
     name: "RoomInfo",
+    data() {
+      return {
+          month : 1,
+      }
+    },
+    watch : {
+      month(value) {
+          if (isNaN(value)) {
+              alert("숫자만 입력하세요");
+              this.month = 1;
+          }
+      }
+    },
     props : {
         원룸들 : Array,
         누른거: Number,
@@ -15,7 +28,9 @@ export default {
             <h4>{{ 원룸들[누른거].title }}</h4>
             <img :src="원룸들[누른거].image" alt="방 사진"/>
             <p>{{ 원룸들[누른거].content }}</p>
-            <p>{{ 원룸들[누른거].price }}원</p>
+<!--            <input @input="this.month = $event.target.value">-->
+            <input v-model.number="month">
+            <p> {{ month }} 개월 선택함 : {{ 원룸들[누른거].price * month }}원</p>
             <button @click="$emit('closeModal')">닫기</button>
         </div>
     </div>
