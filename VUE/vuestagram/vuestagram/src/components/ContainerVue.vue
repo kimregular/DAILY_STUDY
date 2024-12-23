@@ -5,15 +5,16 @@ export default {
     name : "ContainerVue",
     components : {
         PostVue
+    },
+    props : {
+        posts : Array
     }
 }
 </script>
 
 <template>
     <div>
-        <PostVue/>
-        <PostVue/>
-        <PostVue/>
+        <PostVue :posts="posts"/>
     </div>
 </template>
 

@@ -9,7 +9,7 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
-    <ContainerVue :posts="Posts"/>
+    <ContainerVue :posts="posts"/>
 
     <div class="footer">
         <ul class="footer-button-plus">
@@ -30,7 +30,7 @@ export default {
     },
     data() {
         return {
-            Posts
+            posts : Posts
         }
     }
 }
