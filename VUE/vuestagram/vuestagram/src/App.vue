@@ -6,25 +6,27 @@
         <ul class="header-button-right">
             <li>Next</li>
         </ul>
-        <img src="./assets/logo.png" class="logo" />
+        <img src="./assets/logo.png" class="logo"/>
     </div>
 
-    <Container />
+    <ContainerVue/>
 
     <div class="footer">
         <ul class="footer-button-plus">
-            <input type="file" id="file" class="inputfile" />
+            <input type="file" id="file" class="inputfile"/>
             <label for="file" class="input-plus">+</label>
         </ul>
     </div>
 </template>
 
 <script>
+import ContainerVue from "@/components/ContainerVue.vue";
 
 export default {
-  name: 'App',
-  components: {
-  }
+    name: 'App',
+    components: {
+        ContainerVue
+    }
 }
 </script>
 
@@ -32,10 +34,12 @@ export default {
 body {
     margin: 0;
 }
+
 ul {
     padding: 5px;
     list-style-type: none;
 }
+
 .logo {
     width: 22px;
     margin: auto;
@@ -45,6 +49,7 @@ ul {
     right: 0;
     top: 13px;
 }
+
 .header {
     width: 100%;
     height: 40px;
@@ -53,6 +58,7 @@ ul {
     position: sticky;
     top: 0;
 }
+
 .header-button-left {
     color: skyblue;
     float: left;
@@ -61,6 +67,7 @@ ul {
     cursor: pointer;
     margin-top: 10px;
 }
+
 .header-button-right {
     color: skyblue;
     float: right;
@@ -68,6 +75,7 @@ ul {
     cursor: pointer;
     margin-top: 10px;
 }
+
 .footer {
     width: 100%;
     position: sticky;
@@ -75,6 +83,7 @@ ul {
     padding-bottom: 10px;
     background-color: white;
 }
+
 .footer-button-plus {
     width: 80px;
     margin: auto;
@@ -83,17 +92,21 @@ ul {
     font-size: 24px;
     padding-top: 12px;
 }
+
 .sample-box {
     width: 100%;
     height: 600px;
     background-color: bisque;
 }
+
 .inputfile {
     display: none;
 }
+
 .input-plus {
     cursor: pointer;
 }
+
 #app {
     box-sizing: border-box;
     font-family: "consolas";
