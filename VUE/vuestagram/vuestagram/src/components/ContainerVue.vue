@@ -34,7 +34,7 @@ export default {
 
     <!-- 글작성페이지 -->
     <div v-if="step==2">
-        <div class="upload-image"></div>
+        <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="write">
             <textarea class="write-box">write!</textarea>
         </div>

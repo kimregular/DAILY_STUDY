@@ -1,10 +1,11 @@
 <template>
     <div class="header">
         <ul class="header-button-left">
-            <li>Cancel</li>
+            <li v-if="step != 0" @click="cancelUpload($event)">Cancel</li>
         </ul>
         <ul class="header-button-right">
-            <li>Next</li>
+            <li v-if="step==1" @click="step = 2">Next</li>
+            <li v-if="step==2" @click="publish($event)">Publish</li>
         </ul>
         <img src="./assets/logo.png" class="logo"/>
     </div>
@@ -54,7 +55,11 @@ export default {
             let imageUrl = URL.createObjectURL(image);
             this.step = 1;
             this.newImage = imageUrl;
-        }
+        },
+        cancelUpload(e) {
+            this.newImage = '';
+            this.step = 0;
+        },
     }
 }
 </script>
