@@ -21,7 +21,7 @@
 
 <script>
 import ContainerVue from "@/components/ContainerVue.vue";
-import Posts from "@/Posts";
+import postData from "@/assets/postData";
 
 export default {
     name: 'App',
@@ -30,7 +30,7 @@ export default {
     },
     data() {
         return {
-            posts : Posts
+            posts : postData
         }
     }
 }

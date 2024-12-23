@@ -16,7 +16,7 @@ export default {
         <div class="post-body"></div>
         <div class="post-content">
             <p>{{post.likes}} Likes</p>
-            <p><strong>글쓴이아이디</strong> 임시내용</p>
+            <p><strong>{{ post.name }}</strong> {{ post.content }}</p>
             <p class="date">{{post.date}}</p>
         </div>
     </div>

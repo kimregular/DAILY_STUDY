@@ -14,9 +14,9 @@ export default {
 
 <template>
     <div>
-        <h4>{{ posts[postId].title }}</h4>
-        <h5>{{ posts[postId].content }}</h5>
-        <p>{{ posts[postId].date }}</p>
+        <h4>{{ postData[postId].title }}</h4>
+        <h5>{{ postData[postId].content }}</h5>
+        <p>{{ postData[postId].date }}</p>
     </div>
 </template>
 

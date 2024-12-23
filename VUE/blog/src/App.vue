@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import posts from "@/assets/post";
+import postData from "@/assets/post";
 
 export default {
     name: 'App',

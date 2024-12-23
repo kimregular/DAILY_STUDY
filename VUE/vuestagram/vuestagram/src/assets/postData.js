@@ -1,4 +1,4 @@
-const posts = [
+const postData = [
     {
         name: "Kim Hyun",
         userImage: "https://picsum.photos/100?random=3",
@@ -29,4 +29,4 @@ const posts = [
     }
 ];
 
-export default posts;
+export default postData;
