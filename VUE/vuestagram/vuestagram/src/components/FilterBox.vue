@@ -2,14 +2,17 @@
 export default {
     name: "FilterBox",
     props: {
-        newImage: String
+        newImage: String,
+        filterType : String
     }
 }
 
 </script>
 
 <template>
-    <div class="filter-item" :style="{backgroundImage : `url(${newImage})`}"></div>
+    <div class="filter-item" :class="filterType" :style="{backgroundImage : `url(${newImage})`}">
+        <h4>filterType</h4>
+    </div>
 </template>
 
 <style>
