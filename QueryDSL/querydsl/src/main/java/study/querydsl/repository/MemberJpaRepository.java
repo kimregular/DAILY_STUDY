@@ -2,6 +2,7 @@ package study.querydsl.repository;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
@@ -103,20 +104,20 @@ public class MemberJpaRepository {
                            .fetch();
     }
 
-    private Predicate usernameEq(String username) {
+    private BooleanExpression usernameEq(String username) {
         return !hasText(username) ? null : member.username.eq(username);
     }
 
-    private Predicate teamNameEq(String teamName) {
+    private BooleanExpression teamNameEq(String teamName) {
         return !hasText(teamName) ? null : team.name.eq(teamName);
     }
 
-    private Predicate ageGoe(Integer ageGoe) {
+    private BooleanExpression ageGoe(Integer ageGoe) {
         return isEmpty(ageGoe) ? null : member.age.goe(ageGoe);
     }
 
-    private Predicate ageLoe(Integer ageLoe) {
-
+    private BooleanExpression ageLoe(Integer ageLoe) {
+        return isEmpty(ageLoe) ? null : member.age.loe(ageLoe);
     }
 
 }
