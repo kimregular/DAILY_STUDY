@@ -1,0 +1,8 @@
+### searchMemberV1-1
+GET localhost:8080/v1/members
+
+### searchMemberV1-2
+GET localhost:8080/v1/members?teamName=teamB
+
+### searchMemberV1-3
+GET localhost:8080/v1/members?teamName=teamB&ageGoe=31&ageLoe=35
