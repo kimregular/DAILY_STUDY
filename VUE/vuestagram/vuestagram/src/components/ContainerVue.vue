@@ -24,11 +24,7 @@ export default {
     <div v-if="step==1">
         <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="filters">
-            <div class="filter-1"></div>
-            <div class="filter-1"></div>
-            <div class="filter-1"></div>
-            <div class="filter-1"></div>
-            <div class="filter-1"></div>
+            <FilterBox></FilterBox>
         </div>
     </div>
 
