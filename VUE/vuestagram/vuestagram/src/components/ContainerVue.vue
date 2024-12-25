@@ -8,6 +8,15 @@ export default {
         PostVue,
         FilterBox
     },
+    data() {
+        return {
+            filterTypes: [
+                "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson",
+                "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua",
+                "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"
+            ],
+        }
+    },
     props: {
         posts: Array,
         step: Number,
@@ -26,7 +35,7 @@ export default {
     <div v-if="step==1">
         <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="filters">
-            <FilterBox :newImage="newImage"></FilterBox>
+            <FilterBox :newImage="newImage" v-for="(filterType, i) in filterTypes" :key="i"></FilterBox>
         </div>
     </div>
 

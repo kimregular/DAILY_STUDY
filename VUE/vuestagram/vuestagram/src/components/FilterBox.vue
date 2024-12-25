@@ -1,7 +1,7 @@
 <script>
 export default {
     name: "FilterBox",
-    props : {
+    props: {
         newImage: String
     }
 }
@@ -19,8 +19,8 @@ export default {
     margin: 10px 10px 10px auto;
     padding: 8px;
     display: inline-block;
-    color : white;
+    color: white;
     background-size: cover;
-    background-position : center;
+    background-position: center;
 }
 </style>
