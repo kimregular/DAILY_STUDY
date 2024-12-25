@@ -10,7 +10,7 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
-    <ContainerVue :posts="posts" :step="step" :newImage="newImage" @write="content = $event"/>
+    <ContainerVue :posts="posts" :step="step" :newImage="newImage" :filterType="filterType" @write="content = $event"/>
 
     <div class="footer">
         <ul class="footer-button-plus">

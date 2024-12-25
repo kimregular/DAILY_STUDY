@@ -9,11 +9,6 @@ export default {
         PostVue,
         FilterBox
     },
-    mounted() {
-        this.emitter.on('filterType', (filterType) => {
-            this.filterType = filterType;
-        });
-    },
     data() {
         return {
             filterTypes: [
@@ -21,13 +16,13 @@ export default {
                 "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua",
                 "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"
             ],
-            filterType : ''
         }
     },
     props: {
         posts: Array,
         step: Number,
-        newImage: String
+        newImage: String,
+        filterType: String
     }
 }
 </script>
@@ -43,7 +38,7 @@ export default {
         <div class="upload-image" :class="filterType" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="filters">
             <FilterBox :newImage="newImage" :filterType="filterType" v-for="(filterType, i) in filterTypes" :key="i">
-                {{filterType}}
+                {{ filterType }}
             </FilterBox>
         </div>
     </div>

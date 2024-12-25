@@ -6,7 +6,7 @@ export default {
         filterType : String
     },
     methods : {
-        fire() {
+        setFilter() {
             this.emitter.emit('filterType', this.filterType);
         }
     }
@@ -15,9 +15,8 @@ export default {
 </script>
 
 <template>
-    <div class="filter-item" :class="filterType" :style="{backgroundImage : `url(${newImage})`}">
+    <div class="filter-item" :class="filterType" :style="{backgroundImage : `url(${newImage})`}" @click="setFilter">
         <slot></slot>
-        <button @click="fire">버튼</button>
     </div>
 </template>
 
