@@ -17,6 +17,7 @@ export default {
                 "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"
             ],
         }
+
     },
     props: {
         posts: Array,
