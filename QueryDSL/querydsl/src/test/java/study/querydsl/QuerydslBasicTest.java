@@ -120,4 +120,49 @@ public class QuerydslBasicTest {
 //        assertThat(fetch).hasSize(4);
 //        assertThat(fetchOne).h
     }
+
+    /**
+     * 회원 정렬 순서
+     * 1. 회원 나이 내림차순
+     * 2. 회원 이름 올림차순
+     * 단 2에서 회원 이름이 없으면 마지막에 출력(nulls last)
+     */
+    @Test
+    @DisplayName("sort")
+    void test6(){
+        // given
+        em.persist(new Member(null, 100));
+        em.persist(new Member("member5", 100));
+        em.persist(new Member("member6", 100));
+
+        // when
+        List<Member> result = queryFactory.selectFrom(member)
+                                         .where(member.age.eq(100))
+                                         .orderBy(member.age.desc(),
+                                                  member.username.asc()
+                                                                 .nullsLast())
+                                         .fetch();
+
+        Member member5 = result.get(0);
+        Member member6 = result.get(1);
+        Member member7 = result.get(2);
+        // then
+        assertThat(member5.getUsername()).isEqualTo("member5");
+        assertThat(member6.getUsername()).isEqualTo("member6");
+        assertThat(member7.getUsername()).isNull();
+    }
+
+    @Test
+    @DisplayName("paging1")
+    void test7(){
+        // given
+        // when
+        List<Member> result = queryFactory.selectFrom(member)
+                                         .orderBy(member.username.desc())
+                                         .offset(1)
+                                         .limit(2)
+                                         .fetch();
+        // then
+        assertThat(result).hasSize(2);
+    }
 }
