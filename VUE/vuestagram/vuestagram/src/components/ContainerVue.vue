@@ -37,6 +37,7 @@ export default {
         <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="filters">
             <FilterBox :newImage="newImage" :filterType="filterType" v-for="(filterType, i) in filterTypes" :key="i">
+                {{filterType}}
             </FilterBox>
         </div>
     </div>

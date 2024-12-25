@@ -11,7 +11,7 @@ export default {
 
 <template>
     <div class="filter-item" :class="filterType" :style="{backgroundImage : `url(${newImage})`}">
-        {{filterType}}
+        <slot></slot>
     </div>
 </template>
 
