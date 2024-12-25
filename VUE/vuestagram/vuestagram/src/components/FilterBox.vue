@@ -1,9 +1,15 @@
-<script setup>
+<script>
+export default {
+    name: "FilterBox",
+    props : {
+        newImage: String
+    }
+}
 
 </script>
 
 <template>
-    div
+    <div class="filter-item" :style="{backgroundImage : `url(${newImage})`}"></div>
 </template>
 
 <style>

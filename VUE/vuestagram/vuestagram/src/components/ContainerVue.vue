@@ -1,10 +1,12 @@
 <script>
 import PostVue from "@/components/PostVue.vue";
+import FilterBox from "@/components/FilterBox.vue";
 
 export default {
     name: "ContainerVue",
     components: {
-        PostVue
+        PostVue,
+        FilterBox
     },
     props: {
         posts: Array,
@@ -24,7 +26,7 @@ export default {
     <div v-if="step==1">
         <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="filters">
-            <FilterBox></FilterBox>
+            <FilterBox :newImage="newImage"></FilterBox>
         </div>
     </div>
 
