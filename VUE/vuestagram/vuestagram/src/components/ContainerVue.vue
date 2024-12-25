@@ -10,7 +10,7 @@ export default {
         FilterBox
     },
     mounted() {
-        this.emitter.on('filteredImage', (filterType) => {
+        this.emitter.on('filterType', (filterType) => {
             this.filterType = filterType;
         });
     },
@@ -21,6 +21,7 @@ export default {
                 "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua",
                 "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"
             ],
+            filterType : ''
         }
     },
     props: {
@@ -39,7 +40,7 @@ export default {
 
     <!-- 필터선택페이지 -->
     <div v-if="step==1">
-        <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
+        <div class="upload-image" :class="filterType" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="filters">
             <FilterBox :newImage="newImage" :filterType="filterType" v-for="(filterType, i) in filterTypes" :key="i">
                 {{filterType}}
@@ -49,7 +50,7 @@ export default {
 
     <!-- 글작성페이지 -->
     <div v-if="step==2">
-        <div class="upload-image" :style="{backgroundImage : `url(${newImage})`}"></div>
+        <div class="upload-image" :class="filterType" :style="{backgroundImage : `url(${newImage})`}"></div>
         <div class="write">
             <textarea class="write-box" @input="$emit('write', $event.target.value)">write!</textarea>
         </div>

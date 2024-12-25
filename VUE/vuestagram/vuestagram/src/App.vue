@@ -30,6 +30,11 @@ export default {
     components: {
         ContainerVue
     },
+    mounted() {
+        this.emitter.on('filterType', (filterType) => {
+            this.filterType = filterType;
+        });
+    },
     data() {
         return {
             step: 0,
@@ -37,6 +42,7 @@ export default {
             click: 0,
             newImage: '',
             content : '',
+            filterType : ''
         }
     },
     watch: {
@@ -71,7 +77,7 @@ export default {
                 date: this.$_getMonthAndDate(),
                 liked: false,
                 content: this.content,
-                filter: "dummy",
+                filter: this.filterType,
             };
             this.posts.unshift(newPost);
             this.step = 0;
