@@ -3,7 +3,8 @@ import {createStore} from "vuex";
 const store = createStore({
     state() {
         return {
-            age : 20
+            age : 20,
+            likes : 30
         }
     },
     mutations : {
@@ -11,6 +12,9 @@ const store = createStore({
             console.log("mutations has called");
             state.age = state.age + data;
         },
+        addLikes(state) {
+            state.likes[idx]++;
+        }
     }
 });
 
