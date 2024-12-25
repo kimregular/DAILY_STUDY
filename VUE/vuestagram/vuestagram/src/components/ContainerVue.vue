@@ -4,6 +4,7 @@ import FilterBox from "@/components/FilterBox.vue";
 
 export default {
     name: "ContainerVue",
+    emits: ['write'],
     components: {
         PostVue,
         FilterBox
