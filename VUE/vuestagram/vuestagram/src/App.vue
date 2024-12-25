@@ -10,6 +10,9 @@
         <img src="./assets/logo.png" class="logo"/>
     </div>
 
+    <span>{{ $store.state.age }}</span>
+    <button @click="$store.commit.addAge()">늙기</button>
+
     <ContainerVue :posts="posts" :step="step" :newImage="newImage" :filterType="filterType" @write="content = $event"/>
 
     <div class="footer">
