@@ -11,7 +11,7 @@
     </div>
 
     <span>{{ $store.state.age }}</span>
-    <button @click="$store.commit.addAge()">늙기</button>
+    <button @click="$store.commit('addAge', 10)">10살 늙기</button>
 
     <ContainerVue :posts="posts" :step="step" :newImage="newImage" :filterType="filterType" @write="content = $event"/>
 

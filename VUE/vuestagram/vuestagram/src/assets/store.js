@@ -7,8 +7,8 @@ const store = createStore({
         }
     },
     mutations : {
-        addAge(state) {
-            state.age++;
+        addAge(state, data) {
+            state.age += data;
         },
     }
 });
