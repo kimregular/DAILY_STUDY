@@ -11,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import study.querydsl.entity.Member;
 import study.querydsl.entity.Team;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static study.querydsl.entity.QMember.member;
 
@@ -90,8 +93,33 @@ public class QuerydslBasicTest {
         Member foundMember = queryFactory.selectFrom(member)
                                          .where(member.username.eq("member1"), member.age.eq(10))
                                          .fetchOne();
+        // where 에 and() 안 쓰고 파라미터로 넘김
         // then
         assertThat(foundMember.getUsername()).isEqualTo("member1");
         assertThat(foundMember.getAge()).isEqualTo(10);
+    }
+
+    @Test
+    @DisplayName("resultFetch")
+    void test5() {
+        // given
+        List<Member> fetch = queryFactory.selectFrom(member)
+                                         .fetch();
+
+        Member fetchOne = queryFactory.selectFrom(member)
+                                      .fetchOne();
+
+        Member fetchFirst = queryFactory.selectFrom(member)
+                                        .fetchFirst();
+
+        int size = queryFactory.selectFrom(member)
+                               .fetch()
+                               .size();
+
+        queryFactory.selectFrom(member).fetchC
+        // when
+
+        // then
+        assertThat()
     }
 }
