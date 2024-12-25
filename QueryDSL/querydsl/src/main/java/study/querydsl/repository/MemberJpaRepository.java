@@ -1,6 +1,7 @@
 package study.querydsl.repository;
 
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
@@ -86,6 +87,36 @@ public class MemberJpaRepository {
                            .leftJoin(member.team, team)
                            .where(builder)
                            .fetch();
+    }
+
+    public List<MemberTeamDto> search(MemberSearchCondition condition) {
+        return queryFactory.select(new QMemberTeamDto(member.id.as("memberId"),
+                                                      member.username,
+                                                      member.age,
+                                                      team.id.as("teamId"),
+                                                      team.name.as("teamName")))
+                           .from(member)
+                           .leftJoin(member.team, team)
+                           .where(usernameEq(condition.getUsername()),
+                                  teamNameEq(condition.getTeamName()),
+                                  ageGoe(condition.getAgeGoe()),
+                                  ageLoe(condition.getAgeLoe()))
+                           .fetch();
+    }
+
+    private Predicate usernameEq(String username) {
+        return StringUtils.isEmpty()
+    }
+
+    private Predicate teamNameEq(String teamName) {
+
+    }
+
+    private Predicate ageGoe(Integer ageGoe) {
+    }
+
+    private Predicate ageLoe(Integer ageLoe) {
+
     }
 
 }
