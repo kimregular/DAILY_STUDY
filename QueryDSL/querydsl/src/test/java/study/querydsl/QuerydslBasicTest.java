@@ -103,23 +103,21 @@ public class QuerydslBasicTest {
     @DisplayName("resultFetch")
     void test5() {
         // given
-        List<Member> fetch = queryFactory.selectFrom(member)
-                                         .fetch();
-
-        Member fetchOne = queryFactory.selectFrom(member)
-                                      .fetchOne();
-
-        Member fetchFirst = queryFactory.selectFrom(member)
-                                        .fetchFirst();
-
-        int size = queryFactory.selectFrom(member)
-                               .fetch()
-                               .size();
-
-        queryFactory.selectFrom(member).fetchC
         // when
-
-        // then
-        assertThat()
+//        List<Member> fetch = queryFactory.selectFrom(member)
+//                                         .fetch();
+//
+//        Member fetchOne = queryFactory.selectFrom(member)
+//                                      .fetchOne();
+//
+//        Member fetchFirst = queryFactory.selectFrom(member)
+//                                        .fetchFirst();
+//
+//        int size = queryFactory.selectFrom(member)
+//                               .fetch()
+//                               .size();
+//        // then
+//        assertThat(fetch).hasSize(4);
+//        assertThat(fetchOne).h
     }
 }
