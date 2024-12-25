@@ -5,20 +5,19 @@ import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
 import study.querydsl.dto.MemberSearchCondition;
 import study.querydsl.dto.MemberTeamDto;
 import study.querydsl.dto.QMemberTeamDto;
 import study.querydsl.entity.Member;
-import study.querydsl.entity.QMember;
-import study.querydsl.entity.QTeam;
 
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.util.StringUtils.*;
-import static study.querydsl.entity.QMember.*;
-import static study.querydsl.entity.QTeam.*;
+import static org.springframework.util.ObjectUtils.*;
+import static org.springframework.util.StringUtils.hasText;
+import static study.querydsl.entity.QMember.member;
+import static study.querydsl.entity.QTeam.team;
 
 @Repository
 public class MemberJpaRepository {
@@ -105,14 +104,15 @@ public class MemberJpaRepository {
     }
 
     private Predicate usernameEq(String username) {
-        return StringUtils.isEmpty()
+        return !hasText(username) ? null : member.username.eq(username);
     }
 
     private Predicate teamNameEq(String teamName) {
-
+        return !hasText(teamName) ? null : team.name.eq(teamName);
     }
 
     private Predicate ageGoe(Integer ageGoe) {
+        return isEmpty(ageGoe) ? null : member.age.goe(ageGoe);
     }
 
     private Predicate ageLoe(Integer ageLoe) {
