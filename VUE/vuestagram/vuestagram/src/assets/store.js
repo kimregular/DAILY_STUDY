@@ -13,7 +13,7 @@ const store = createStore({
             state.age = state.age + data;
         },
         addLikes(state) {
-            state.likes[idx]++;
+            state.likes++;
         }
     }
 });
