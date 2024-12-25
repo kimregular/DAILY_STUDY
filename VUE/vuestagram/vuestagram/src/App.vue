@@ -30,6 +30,11 @@ export default {
     components: {
         ContainerVue
     },
+    mounted() {
+        this.emitter.on('filteredImage', (result) => {
+            console.log(result);
+        });
+    },
     data() {
         return {
             step: 0,

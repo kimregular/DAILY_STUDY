@@ -4,6 +4,11 @@ export default {
     props: {
         newImage: String,
         filterType : String
+    },
+    methods : {
+        fire() {
+            this.emitter.emit('filteredImage', '데이터전송!');
+        }
     }
 }
 
@@ -12,6 +17,7 @@ export default {
 <template>
     <div class="filter-item" :class="filterType" :style="{backgroundImage : `url(${newImage})`}">
         <slot></slot>
+        <button @click="fire">버튼</button>
     </div>
 </template>
 
