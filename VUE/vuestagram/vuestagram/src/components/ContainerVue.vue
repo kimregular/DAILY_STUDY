@@ -9,6 +9,11 @@ export default {
         PostVue,
         FilterBox
     },
+    mounted() {
+        this.emitter.on('filteredImage', (filterType) => {
+            this.filterType = filterType;
+        });
+    },
     data() {
         return {
             filterTypes: [

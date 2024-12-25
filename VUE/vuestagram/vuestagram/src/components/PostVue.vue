@@ -13,7 +13,7 @@ export default {
             <div class="profile" :style="{backgroundImage : `url(${post.userImage})`}"></div>
             <span class="profile-name">{{ post.name }}</span>
         </div>
-        <div class="post-body" :style="{backgroundImage : `url(${post.postImage})`}"></div>
+        <div class="post-body" :class="post.filter" :style="{backgroundImage : `url(${post.postImage})`}"></div>
         <div class="post-content">
             <p>{{ post.likes }} Likes</p>
             <p><strong>{{ post.name }}</strong> {{ post.content }}</p>

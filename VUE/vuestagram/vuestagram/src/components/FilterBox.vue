@@ -7,7 +7,7 @@ export default {
     },
     methods : {
         fire() {
-            this.emitter.emit('filteredImage', '데이터전송!');
+            this.emitter.emit('filterType', this.filterType);
         }
     }
 }
