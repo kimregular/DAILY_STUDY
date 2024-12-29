@@ -28,3 +28,9 @@ html은 아래 두 부분으로 구성된다.
 
 사용자가 볼 수 있는 content를 보여준다.
 브라우저 화면 상에 보여질 내용들은 모두 여기에 있어야한다.
+
+## Label
+```html
+<label for="profile"></label>
+<input id="profile" type="file" accept="image/*"/>
+```
