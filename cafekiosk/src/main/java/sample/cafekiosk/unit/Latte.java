@@ -1,7 +1,7 @@
 package sample.cafekiosk.unit;
 
-public class Americano implements Beverage {
-
+public class Latte implements Beverage {
+    
     @Override
     public String getName() {
         return "";
