@@ -192,7 +192,7 @@ void test54() {
 - Mock : 행위 검증(Behavior Verification)
     - 어떤 행위 후 Mock 객체가 어떤 행위를 하는지 확인
 
-## @Mock, @Spy, @InjectMocks
+## @Mock, @InjectMocks
 
 ### @Mock
 
@@ -215,7 +215,7 @@ class MailServiceTest {
 
 ### @InjectMock
 
-생성에 필요한 클래스가 Mock 처리되었다면 해당 의존성을 주입해준다.
+인스턴스 생성에 필요한 클래스가 Mock 처리되었다면 해당 의존성을 주입해준다.
 
 ### Before
 
