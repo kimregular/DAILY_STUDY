@@ -200,7 +200,7 @@ void test54() {
 
 ```java
 // 메서드 내부
-MailService mailService = Mockito.mock(MailService.class);
+MailServiceClient mailServiceClient = Mockito.mock(MailServiceClient.class);
 ```
 
 ```java
@@ -209,9 +209,34 @@ MailService mailService = Mockito.mock(MailService.class);
 class MailServiceTest {
 
 	@Mock
-	MailService mailService;
+	MailServiceClient mailServiceClient;
 }
 ```
 
+### @InjectMock
 
+생성에 필요한 클래스가 Mock 처리되었다면 해당 의존성을 주입해준다.
+
+### Before
+
+```java
+// 메서드 내부
+MailServiceClient mailServiceClient = Mockito.mock(MailServiceClient.class);
+MailService mailService = new MailService(mailServiceClient);
+```
+
+### After
+
+```java
+
+@ExtendWith(MockitoExtension.class)
+class MailServiceTest {
+
+	@Mock
+	MailServiceClient mailServiceClient;
+
+	@InjectMocks
+	MailService mailService;
+}
+```
 
