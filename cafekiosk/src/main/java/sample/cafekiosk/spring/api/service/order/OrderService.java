@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
 import sample.cafekiosk.spring.api.service.order.response.OrderResponse;
+import sample.cafekiosk.spring.domain.order.Order;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductRespository;
 
@@ -18,7 +19,9 @@ public class OrderService {
     public OrderResponse createOrder(OrderCreateRequest request) {
         List<String> productNumbers = request.getProductNumbers();
 
-        productRespository.findAllByProductNumberIn(productNumbers);
+        List<Product> products = productRespository.findAllByProductNumberIn(productNumbers);
+
+        Order order = Order.create(products);
         return null;
     }
 }
