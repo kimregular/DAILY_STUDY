@@ -19,7 +19,7 @@ class CafeKioskTest {
         cafeKiosk.add(new Americano());
 
         // then
-        assertThat(cafeKiosk)
+        assertThat(cafeKiosk.getBeverages().get(0).getPrice()).isEqualTo(4000);
     }
 
 }
