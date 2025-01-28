@@ -1,4 +1,4 @@
-package sample.cafekiosk.unit;
+package sample.cafekiosk.unit.beverage;
 
 public interface Beverage {
 
