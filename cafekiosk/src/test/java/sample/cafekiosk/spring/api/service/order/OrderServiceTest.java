@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
+import sample.cafekiosk.spring.api.service.order.response.OrderResponse;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductRespository;
 import sample.cafekiosk.spring.domain.product.ProductType;
@@ -33,10 +35,18 @@ class OrderServiceTest {
 		Product product3 = createProduct(BAKERY, "003", 5000);
 		productRespository.saveAll(List.of(product1, product2, product3));
 
+		OrderCreateRequest request = OrderCreateRequest.builder()
+				.productNumbers(List.of("001", "002"))
+				.build();
+
 		// when
+		OrderResponse orderResponse = orderService.createOrder(request);
+
 
 		// then
-		assertThat()
+		assertThat(orderResponse.getId())
+		assertThat(orderResponse)
+				.extracting("")
 	}
 
 	private Product createProduct(ProductType type, String productNumber, int price) {
