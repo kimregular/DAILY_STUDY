@@ -46,13 +46,13 @@
 
 ```java
 public Order createOrder() {
-    LocalDateTime currentDateTime = LocalDateTime.now();
-    LocalTime currentTime = currentDateTime.toLocalTime();
-    if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
-        throw new IllegalStateException("주문 시간이 아닙니다. 관리자에게 문의하세요");
-    }
+	LocalDateTime currentDateTime = LocalDateTime.now();
+	LocalTime currentTime = currentDateTime.toLocalTime();
+	if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
+		throw new IllegalStateException("주문 시간이 아닙니다. 관리자에게 문의하세요");
+	}
 
-    return new Order(currentDateTime, beverages);
+	return new Order(currentDateTime, beverages);
 }
 ```
 
@@ -63,15 +63,15 @@ public Order createOrder() {
 @Test
 @DisplayName("create Order test")
 void test51() {
-    // given
-    CafeKiosk cafeKiosk = new CafeKiosk();
-    Americano americano = new Americano();
-    cafeKiosk.add(americano);
-    // when
-    Order order = cafeKiosk.createOrder();
-    // then
-    assertThat(order.getBeverages()).hasSize(1);
-    assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
+	// given
+	CafeKiosk cafeKiosk = new CafeKiosk();
+	Americano americano = new Americano();
+	cafeKiosk.add(americano);
+	// when
+	Order order = cafeKiosk.createOrder();
+	// then
+	assertThat(order.getBeverages()).hasSize(1);
+	assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
 }
 ```
 
@@ -80,12 +80,12 @@ void test51() {
 
 ```java
 public Order createOrder(LocalDateTime currentDateTime) {
-    LocalTime currentTime = currentDateTime.toLocalTime();
-    if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
-        throw new IllegalStateException("주문 시간이 아닙니다. 관리자에게 문의하세요");
-    }
+	LocalTime currentTime = currentDateTime.toLocalTime();
+	if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
+		throw new IllegalStateException("주문 시간이 아닙니다. 관리자에게 문의하세요");
+	}
 
-    return new Order(currentDateTime, beverages);
+	return new Order(currentDateTime, beverages);
 }
 ```
 
@@ -96,43 +96,43 @@ public Order createOrder(LocalDateTime currentDateTime) {
 @Test
 @DisplayName("create Order test with CurrentLocalDateTime")
 void test52() {
-    // given
-    CafeKiosk cafeKiosk = new CafeKiosk();
-    Americano americano = new Americano();
-    cafeKiosk.add(americano);
-    // when
-    Order order = cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 10, 0));
-    // then
-    assertThat(order.getBeverages()).hasSize(1);
-    assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
+	// given
+	CafeKiosk cafeKiosk = new CafeKiosk();
+	Americano americano = new Americano();
+	cafeKiosk.add(americano);
+	// when
+	Order order = cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 10, 0));
+	// then
+	assertThat(order.getBeverages()).hasSize(1);
+	assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
 }
 
 @Test
 @DisplayName("exception - create Order test with CurrentLocalDateTime")
 void test53() {
-    // given
-    CafeKiosk cafeKiosk = new CafeKiosk();
-    Americano americano = new Americano();
-    cafeKiosk.add(americano);
-    // when
-    // then
-    assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 9, 59)))
-            .isInstanceOf(IllegalStateException.class)
-            .hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
+	// given
+	CafeKiosk cafeKiosk = new CafeKiosk();
+	Americano americano = new Americano();
+	cafeKiosk.add(americano);
+	// when
+	// then
+	assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 9, 59)))
+			.isInstanceOf(IllegalStateException.class)
+			.hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
 }
 
 @Test
 @DisplayName("exception - create Order test with CurrentLocalDateTime")
 void test54() {
-    // given
-    CafeKiosk cafeKiosk = new CafeKiosk();
-    Americano americano = new Americano();
-    cafeKiosk.add(americano);
-    // when
-    // then
-    assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 22, 1)))
-            .isInstanceOf(IllegalStateException.class)
-            .hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
+	// given
+	CafeKiosk cafeKiosk = new CafeKiosk();
+	Americano americano = new Americano();
+	cafeKiosk.add(americano);
+	// when
+	// then
+	assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 22, 1)))
+			.isInstanceOf(IllegalStateException.class)
+			.hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
 }
 ```
 
@@ -188,7 +188,30 @@ void test54() {
 둘은 비슷한 동작을 하는 듯 보인다. 그러나 검증하려는 주제가 다르다.
 
 - Stub : 상태 검증(State Verification)
-  - 어떤 행위 후 Stub 객체의 상태가 어떻게 변화되었는지 확인
+    - 어떤 행위 후 Stub 객체의 상태가 어떻게 변화되었는지 확인
 - Mock : 행위 검증(Behavior Verification)
-  - 어떤 행위 후 Mock 객체가 어떤 행위를 하는지 확인
+    - 어떤 행위 후 Mock 객체가 어떤 행위를 하는지 확인
+
+## @Mock, @Spy, @InjectMocks
+
+### @Mock
+
+아래의 두 코드는 동일한 동작을 수행한다.
+
+```java
+// 메서드 내부
+MailService mailService = Mockito.mock(MailService.class);
+```
+
+```java
+
+@ExtendWith(MockitoExtension.class)
+class MailServiceTest {
+
+	@Mock
+	MailService mailService;
+}
+```
+
+
 
