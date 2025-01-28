@@ -1,5 +1,6 @@
 package sample.cafekiosk.spring.api.service.order;
 
+import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,11 @@ import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductRespository;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.groups.Tuple.*;
 import static sample.cafekiosk.spring.domain.product.ProductSellingStatus.*;
 import static sample.cafekiosk.spring.domain.product.ProductType.BAKERY;
 import static sample.cafekiosk.spring.domain.product.ProductType.HANDMADE;
@@ -44,9 +47,16 @@ class OrderServiceTest {
 
 
 		// then
-		assertThat(orderResponse.getId())
+		assertThat(orderResponse.getId()).isNotNull();
 		assertThat(orderResponse)
-				.extracting("")
+				.extracting("registeredDateTime", "totalPrice")
+				.contains(LocalDateTime.now(), 4000);
+		assertThat(orderResponse.getProducts()).hasSize(2)
+				.extracting("productNumber", "price")
+				.containsExactlyInAnyOrder(
+						tuple("001", 1000),
+						tuple("002", 3000)
+				);
 	}
 
 	private Product createProduct(ProductType type, String productNumber, int price) {
