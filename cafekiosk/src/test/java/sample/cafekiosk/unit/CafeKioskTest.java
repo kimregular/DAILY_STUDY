@@ -138,7 +138,21 @@ class CafeKioskTest {
         cafeKiosk.add(americano);
         // when
         // then
-        assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 22, 0)))
+        assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 9, 59)))
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
+    }
+
+    @Test
+    @DisplayName("exception - create Order test with CurrentLocalDateTime")
+    void test54() {
+        // given
+        CafeKiosk cafeKiosk = new CafeKiosk();
+        Americano americano = new Americano();
+        cafeKiosk.add(americano);
+        // when
+        // then
+        assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 22, 1)))
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
     }

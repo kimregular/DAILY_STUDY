@@ -34,3 +34,98 @@
 
 `가게 운영 시간(10:00 ~ 22:00) 외에는 주문을 생성할 수 없다.`  
 위와 같은 조건이 있다고 가정해보자.
+
+```java
+public Order createOrder() {
+    LocalDateTime currentDateTime = LocalDateTime.now();
+    LocalTime currentTime = currentDateTime.toLocalTime();
+    if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
+        throw new IllegalStateException("주문 시간이 아닙니다. 관리자에게 문의하세요");
+    }
+
+    return new Order(currentDateTime, beverages);
+}
+```
+
+위 코드에서 주문을 만들 때 지금 시간을 메서드에서 처리하고 있다.
+
+```java
+
+@Test
+@DisplayName("create Order test")
+void test51() {
+    // given
+    CafeKiosk cafeKiosk = new CafeKiosk();
+    Americano americano = new Americano();
+    cafeKiosk.add(americano);
+    // when
+    Order order = cafeKiosk.createOrder();
+    // then
+    assertThat(order.getBeverages()).hasSize(1);
+    assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
+}
+```
+
+따라서 위 테스트 코드는 테스트 코드를 실행하는 시간에 따라 성공하거나 실패하게 된다.
+즉 시간에 따라 테스트 결과가 달라진다. -> 분리 필요
+
+```java
+public Order createOrder(LocalDateTime currentDateTime) {
+    LocalTime currentTime = currentDateTime.toLocalTime();
+    if (currentTime.isBefore(SHOP_OPEN_TIME) || currentTime.isAfter(SHOP_CLOSE_TIME)) {
+        throw new IllegalStateException("주문 시간이 아닙니다. 관리자에게 문의하세요");
+    }
+
+    return new Order(currentDateTime, beverages);
+}
+```
+
+위와 같이 현재 시간을 입력받도록 코드를 변경한다.
+
+```java
+
+@Test
+@DisplayName("create Order test with CurrentLocalDateTime")
+void test52() {
+    // given
+    CafeKiosk cafeKiosk = new CafeKiosk();
+    Americano americano = new Americano();
+    cafeKiosk.add(americano);
+    // when
+    Order order = cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 10, 0));
+    // then
+    assertThat(order.getBeverages()).hasSize(1);
+    assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
+}
+
+@Test
+@DisplayName("exception - create Order test with CurrentLocalDateTime")
+void test53() {
+    // given
+    CafeKiosk cafeKiosk = new CafeKiosk();
+    Americano americano = new Americano();
+    cafeKiosk.add(americano);
+    // when
+    // then
+    assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 9, 59)))
+            .isInstanceOf(IllegalStateException.class)
+            .hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
+}
+
+@Test
+@DisplayName("exception - create Order test with CurrentLocalDateTime")
+void test54() {
+    // given
+    CafeKiosk cafeKiosk = new CafeKiosk();
+    Americano americano = new Americano();
+    cafeKiosk.add(americano);
+    // when
+    // then
+    assertThatThrownBy(() -> cafeKiosk.createOrder(LocalDateTime.of(2025, 1, 26, 22, 1)))
+            .isInstanceOf(IllegalStateException.class)
+            .hasMessage("주문 시간이 아닙니다. 관리자에게 문의하세요");
+}
+```
+
+현재 시간을 분리함으로써 시간에 의존하지 않는 테스트를 작성할 수 있게 되었다.
+그리고 경계값 테스트도 가능하게 되었다.
