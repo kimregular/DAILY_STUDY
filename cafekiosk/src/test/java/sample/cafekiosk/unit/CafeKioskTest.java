@@ -97,4 +97,17 @@ class CafeKioskTest {
         cafeKiosk.clear();
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
+
+    @Test
+    @DisplayName("create Order test")
+    void test5() {
+        // given
+        CafeKiosk cafeKiosk = new CafeKiosk();
+        Americano americano = new Americano();
+        // when
+        cafeKiosk.add(americano);
+
+        // then
+        assertThat()
+    }
 }
