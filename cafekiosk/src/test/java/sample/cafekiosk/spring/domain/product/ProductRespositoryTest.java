@@ -13,8 +13,8 @@ import static org.assertj.core.groups.Tuple.tuple;
 import static sample.cafekiosk.spring.domain.product.ProductSellingStatus.*;
 import static sample.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
-@ActiveProfiles("test")
 @SpringBootTest
+@ActiveProfiles("test")
 class ProductRespositoryTest {
 
     @Autowired
