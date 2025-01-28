@@ -27,7 +27,16 @@ public class OrderResponse {
 		this.products = products;
 	}
 
-	private static OrderResponse of(Order order) {
-		
+	public static OrderResponse of(Order order) {
+		return OrderResponse.builder()
+				.id(order.getId())
+				.orderStatus(order.getOrderStatus())
+				.totalPrice(order.getTotalPrice())
+				.registeredDateTime(order.getRegisteredDateTime())
+				.products(order.getOrderProducts().stream()
+						.map(orderProduct -> ProductResponse.of(orderProduct.getProduct()))
+						.toList())
+				.build();
 	}
+
 }
