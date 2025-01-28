@@ -8,6 +8,7 @@ import sample.cafekiosk.spring.domain.order.Order;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductRespository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -21,7 +22,7 @@ public class OrderService {
 
         List<Product> products = productRespository.findAllByProductNumberIn(productNumbers);
 
-        Order order = Order.create(products);
+        Order order = Order.create(products, LocalDateTime.now());
         return null;
     }
 }
