@@ -1,7 +1,9 @@
 package sample.cafekiosk.spring.api.service.order.response;
 
+import lombok.Builder;
 import lombok.Getter;
 import sample.cafekiosk.spring.api.service.product.response.ProductResponse;
+import sample.cafekiosk.spring.domain.order.Order;
 import sample.cafekiosk.spring.domain.order.OrderStatus;
 
 import java.time.LocalDateTime;
@@ -16,4 +18,16 @@ public class OrderResponse {
 	private LocalDateTime registeredDateTime;
 	private List<ProductResponse> products;
 
+	@Builder
+	private OrderResponse(Long id, OrderStatus orderStatus, int totalPrice, LocalDateTime registeredDateTime, List<ProductResponse> products) {
+		this.id = id;
+		this.orderStatus = orderStatus;
+		this.totalPrice = totalPrice;
+		this.registeredDateTime = registeredDateTime;
+		this.products = products;
+	}
+
+	private static OrderResponse of(Order order) {
+		
+	}
 }

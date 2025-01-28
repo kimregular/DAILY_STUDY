@@ -1,6 +1,5 @@
 package sample.cafekiosk.spring.api.service.order;
 
-import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +42,7 @@ class OrderServiceTest {
 				.build();
 
 		// when
-		OrderResponse orderResponse = orderService.createOrder(request);
+		OrderResponse orderResponse = orderService.createOrder(request, LocalDateTime.now());
 
 
 		// then

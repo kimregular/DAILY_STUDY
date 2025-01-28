@@ -17,12 +17,12 @@ public class OrderService {
 
     private final ProductRespository productRespository;
 
-    public OrderResponse createOrder(OrderCreateRequest request) {
+    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
         List<String> productNumbers = request.getProductNumbers();
 
         List<Product> products = productRespository.findAllByProductNumberIn(productNumbers);
 
-        Order order = Order.create(products, LocalDateTime.now());
+        Order order = Order.create(products, registeredDateTime);
         return null;
     }
 }
