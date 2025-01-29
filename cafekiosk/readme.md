@@ -220,7 +220,7 @@ class MailServiceTest {
 ### Before
 
 ```java
-// 메서드 내부
+// 클래스 내부
 MailServiceClient mailServiceClient = Mockito.mock(MailServiceClient.class);
 MailService mailService = new MailService(mailServiceClient);
 ```
