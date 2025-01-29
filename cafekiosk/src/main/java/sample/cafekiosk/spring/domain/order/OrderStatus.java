@@ -12,7 +12,7 @@ public enum OrderStatus {
     PAYMENT_COMPLETED("결제완료"),
     PAYMENT_FAILED("결제실패"),
     RECEIVED("주문접수"),
-    COMPLETED("처리완료");
+    COMPLETE("처리완료");
 
     private final String text;
 }

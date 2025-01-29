@@ -1,30 +1,27 @@
 package sample.cafekiosk.spring.domain.product;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import sample.cafekiosk.spring.domain.BaseEntity;
 
-import static jakarta.persistence.EnumType.*;
-import static jakarta.persistence.GenerationType.IDENTITY;
-import static lombok.AccessLevel.PROTECTED;
-
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@NoArgsConstructor(access = PROTECTED)
 public class Product extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String productNumber;
 
-    @Enumerated(STRING)
+    @Enumerated(EnumType.STRING)
     private ProductType type;
 
-    @Enumerated(STRING)
+    @Enumerated(EnumType.STRING)
     private ProductSellingStatus sellingStatus;
 
     private String name;

@@ -1,28 +1,27 @@
 package sample.cafekiosk.unit.beverage;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AmericanoTest {
 
     @Test
-    @DisplayName("이름 확인 테스트")
-    void test1(){
+    void getName() {
         // given
         Americano americano = new Americano();
-        // when
+
         // then
-        assertThat(americano.getName()).isEqualTo("아메리카노");
+//        assertEquals(americano.getName(), "아메리카노");  // JUnit 5의 비교 api
+        assertThat(americano.getName()).isEqualTo("아메리카노");  // AssertJ의 비교 api. 위 메서드 보다 더 명시적
     }
 
     @Test
-    @DisplayName("가격 확인 테스트")
-    void test2() {
+    void getPrice() {
         // given
         Americano americano = new Americano();
-        // when
+
         // then
         assertThat(americano.getPrice()).isEqualTo(4000);
     }
