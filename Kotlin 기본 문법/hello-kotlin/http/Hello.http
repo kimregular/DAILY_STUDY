@@ -1,0 +1,26 @@
+### POST postWith
+POST http://localhost:8080/api/v1/withPost
+Content-Type: application/json
+
+{
+    "name" : "kim",
+    "age" : 19
+}
+
+### POST postWith fail
+POST http://localhost:8080/api/v1/withPost
+Content-Type: application/json
+
+{
+  "name" : "",
+  "age" : 1000
+}
+
+### POST postWith fail
+POST http://localhost:8080/api/v1/withPost
+Content-Type: application/json
+
+{
+  "name" : "",
+  "age" : 0
+}
