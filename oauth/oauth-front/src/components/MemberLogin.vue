@@ -13,6 +13,12 @@ const googleOAuthInfo = {
   googleScope : "openid email profile"
 }
 
+const kakaoOAuthInfo = {
+  kakaoUrl : "https://kauth.kakao.com/oauth/authorize",
+  kakaoClientId : "ea19bf2cd74da334224f83f532e676f3",
+  kakaoRedirectUri : "http://localhost:3000/oauth/kakao/redirect"
+}
+
 const memberLogin = async () => {
   const loginData = {
     email: email.value,
@@ -30,7 +36,7 @@ const googleLogin = () => {
 }
 
 const kakaoLogin = () => {
-  alert("kakao!");
+  window.location.href = `${kakaoOAuthInfo.kakaoUrl}?client_id=${kakaoOAuthInfo.kakaoClientId}&redirect_uri=${kakaoOAuthInfo.kakaoRedirectUri}&response_type=code`;
 }
 
 </script>

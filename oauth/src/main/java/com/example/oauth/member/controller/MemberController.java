@@ -5,6 +5,7 @@ import com.example.oauth.member.domain.Member;
 import com.example.oauth.member.domain.SocialType;
 import com.example.oauth.member.dto.*;
 import com.example.oauth.member.service.GoogleService;
+import com.example.oauth.member.service.KakaoService;
 import com.example.oauth.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,6 +26,7 @@ public class MemberController {
 	private final MemberService memberService;
 	private final JwtTokenProvider jwtTokenProvider;
 	private final GoogleService googleService;
+	private final KakaoService kakaoService;
 
 	@PostMapping("/create")
 	public ResponseEntity<?> memberCreate(@RequestBody MemberCreateDto memberCreateDto) {
@@ -52,6 +54,25 @@ public class MemberController {
 		Member originalMember = memberService.getMemberBySocialId(googleProfileDto.getSub());
 		if (originalMember == null) {
 			originalMember  = memberService.createOauth(googleProfileDto.getSub(), googleProfileDto.getEmail(), SocialType.GOOGLE);
+		}
+		// 4. 이미 회원이라면 토큰 발급
+		String jwtToken = jwtTokenProvider.createToken(originalMember.getEmail(), originalMember.getRole().toString());
+		Map<String, Object> loginInfo = new HashMap<>();
+		loginInfo.put("id", originalMember.getId());
+		loginInfo.put("token", jwtToken);
+		return new ResponseEntity<>(loginInfo, HttpStatus.OK);
+	}
+
+	@PostMapping("/kakao/doLogin")
+	public ResponseEntity<?> kakaoLogin(@RequestBody RedirectDto redirectDto) {
+		// 1. accessToken 발급
+		AccessTokenDto accessTokenDto = kakaoService.getAccessToken(redirectDto.getCode());
+		// 2. 사용자 정보 얻기
+		KakaoProfileDto kakaoProfilDto = kakaoService.getKakaoProfile(accessTokenDto.getAccess_token());
+		// 3. 회원이 아니라면 회원가입
+		Member originalMember = memberService.getMemberBySocialId(kakaoProfilDto.getId());
+		if (originalMember == null) {
+			originalMember  = memberService.createOauth(kakaoProfilDto.getId(), kakaoProfilDto.getKakaoAccount().getEmail(), SocialType.KAKAO);
 		}
 		// 4. 이미 회원이라면 토큰 발급
 		String jwtToken = jwtTokenProvider.createToken(originalMember.getEmail(), originalMember.getRole().toString());

@@ -36,7 +36,7 @@ public class SecurityConfig {
 		http.httpBasic(AbstractHttpConfigurer::disable); // basic 인증 비활성화
 		http.sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 		http.authorizeHttpRequests(a ->
-				a.requestMatchers("/member/create", "/member/doLogin", "/member/google/doLogin").permitAll().anyRequest().authenticated());
+				a.requestMatchers("/member/create", "/member/doLogin", "/member/google/doLogin", "/member/kakao/doLogin").permitAll().anyRequest().authenticated());
 
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
