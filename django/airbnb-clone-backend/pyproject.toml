@@ -9,7 +9,9 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "django (>=5.2.7,<6.0.0)"
+    "django (>=5.2.7,<6.0.0)",
+    "pillow (>=12.0.0,<13.0.0)",
+    "ruff (>=0.14.1,<0.15.0)"
 ]
 
 
