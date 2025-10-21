@@ -1,39 +1,34 @@
 from django.contrib import admin
-from .models import Room, Amenity
+from .models import Experience, Perk
 
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
 
-@admin.register(Room)
-class RoomAdmin(admin.ModelAdmin):
-    
     list_display = (
         "name",
         "price",
-        "owner",
-        "kind",
+        "start",
+        "end",
         "created_at",
         "updated_at",
     )
 
     list_filter = (
-        "country",
-        "city",
         "price",
-        "rooms",
-        "toilets",
-        "pet_friendly",
-        "kind",
-        "amenities",
+        "start",
+        "end",
+        "perks",
         "created_at",
         "updated_at",
     )
 
-
-@admin.register(Amenity)
-class AmenityAdmin(admin.ModelAdmin):
+@admin.register(Perk)
+class PerkAdmin(admin.ModelAdmin):
     
     list_display = (
         "name",
-        "description",
+        "details",
+        "explanation",
         "created_at",
         "updated_at",
     )
