@@ -1,10 +1,16 @@
 <configuration>
     <property name="LOG_FILE" value="application.log"/>
 
+    <!--    logstash 출력-->
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>logstash:5044</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
     <!--    콘솔 출력-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} prod %-5level [%thread] %logger{36} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} dev %-5level [%thread] %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
@@ -25,5 +31,6 @@
     <root level="info">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
+        <appender-ref ref="LOGSTASH"/>
     </root>
 </configuration>

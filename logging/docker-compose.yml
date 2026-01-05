@@ -1,0 +1,44 @@
+services:
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.10.0
+        container_name: elasticsearch
+        environment:
+            - discovery.type=single-node
+            - xpack.security.enabled=false
+            - xpack.security.http.ssl.enabled=false
+        ports:
+            - "9200:9200"
+        networks:
+            - elastic-network
+
+    logstash:
+        image: docker.elastic.co/logstash/logstash:8.10.0
+        container_name: logstash
+        volumes:
+            - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+        ports:
+            - "5044:5044"
+            - "9600:9600"
+        depends_on:
+            - elasticsearch
+        networks:
+            - elastic-network
+
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: spring-app
+        ports:
+            - "8080:8080"
+        depends_on:
+            - logstash
+        environment:
+            - LOGSTASH_HOST=logstash
+            - LOGSTASH_PORT=5044
+        networks:
+            - elastic-network
+
+networks:
+    elastic-network:
+        driver: bridge
