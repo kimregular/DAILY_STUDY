@@ -1,2 +1,0 @@
-# File Extension Blocker
-
