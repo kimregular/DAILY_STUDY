@@ -328,7 +328,7 @@
         const pill = btn.closest(".pill");
 
         try {
-            const resp = await fetch(`/api/extensions/custom/${id}`, {method: "DELETE"});
+            const resp = await fetch("/api/extensions/custom/" + id, {method: "DELETE"});
 
             if (!resp.ok) {
                 const msg = await readErrorMessage(resp);

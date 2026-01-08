@@ -20,6 +20,4 @@ server:
     port: 8080
 
 logging:
-    level:
-        org.hibernate.SQL: debug
-        org.hibernate.type.descriptor.sql: trace
+    config: classpath:logback-spring.xml

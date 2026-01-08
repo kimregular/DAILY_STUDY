@@ -62,7 +62,7 @@ public class FileExtensionPolicyService {
             throw new CustomLimitExceededException("커스텀 확장자는 최대 200개까지 추가할 수 있습니다.");
         }
 
-        // 빠른 중복 체크(UX). 동시성은 unique constraint로 최종 방어.
+        // 중복 체크
         if (repository.existsByName(normalized)) {
             throw new DuplicateExtensionException("이미 존재하는 확장자입니다: " + normalized);
         }
@@ -70,7 +70,6 @@ public class FileExtensionPolicyService {
         try {
             return repository.save(FileExtensionPolicy.custom(normalized));
         } catch (DataIntegrityViolationException e) {
-            // 동시성/레이스 대비
             throw new DuplicateExtensionException("이미 존재하는 확장자입니다: " + normalized);
         }
     }

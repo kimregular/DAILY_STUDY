@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'war'
     id 'org.springframework.boot' version '3.4.1'
     id 'io.spring.dependency-management' version '1.1.7'
 }
@@ -25,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    // web + mvc + json + embedded tomcat
+    // web + mvc
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // jpa
@@ -33,6 +34,9 @@ dependencies {
 
     // validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     // dev
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -45,11 +49,11 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'
 
-    // jsp
+    // JSP
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
-    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
-    implementation 'jakarta.servlet:jakarta.servlet-api'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.1'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
     // test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
