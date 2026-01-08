@@ -1,0 +1,15 @@
+spring:
+    config:
+        activate:
+            on-profile: prod
+
+    datasource:
+        url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: ${DB_USER}
+        password: ${DB_PASSWORD}
+
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL8Dialect
+        hibernate:
+            ddl-auto: validate
