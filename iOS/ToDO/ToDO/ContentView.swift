@@ -6,16 +6,31 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     
-    @State // class에는 @Observable 추가해줘야함!
+    @Environment(\.modelContext)
+    private var modelContext
+    
+    // @State // class에는 @Observable 추가해줘야함!
+    @Query
     var todoList: [Todo] = []
+    
+    func addTodo() {
+        withAnimation {
+            let newTodo = Todo(title: "new todo")
+            // todoList.append(newTodo)
+            modelContext.insert(newTodo)
+        }
+    }
     
     func deleteTodo(indexSet: IndexSet) {
         withAnimation{
             for index in indexSet {
-                todoList.remove(at: index)
+                //                todoList.remove(at: index)
+                let todo = todoList[index]
+                modelContext.delete(todo)
             }
         }
     }
@@ -53,12 +68,8 @@ struct ContentView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: {
-                        withAnimation{
-                            let newTodo = Todo(title: "새로운 Todo")
-                            todoList.append(newTodo)
-                        }
-                    }, label: {
+                    Button(action: addTodo,
+                           label: {
                         Image(systemName: "plus")
                     })
                 }
