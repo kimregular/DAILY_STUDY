@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: chat
+        cli: false
+    ai:
+        ollama:
+            init:
+                pull-model-strategy: when_missing
+            chat:
+                model: hf.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF
+logging:
+    level:
+      org.springframework.ai.chat.advisor: DEBUG
